@@ -20,12 +20,18 @@ public class Parser {
 	private static BPMNCodeGenerator codegen = new BPMNCodeGenerator();
 	
 	public static void main(String[] args) {
-		g = XPDLGraph.getGraph("input/test.xpdl.xml");
+		g = XPDLGraph.getGraph(Constants.XPDLFile);
 		
 		findStartAndEndVertexs();
-		
 		Util.log("Start node: " + ((Element)startNode).getAttribute("Name"));
 		Util.log("End node: " + ((Element)endNode).getAttribute("Name"));
+
+		if (startNode == null || endNode == null) {
+			Util.log("Couldn't find start or end node.");
+			return;
+		}
+		
+		generateRDLFile();
 	}
 	
 	private static void findStartAndEndVertexs() {
@@ -61,5 +67,11 @@ public class Parser {
 		codegen.addVarDeclaration("void", Constants.PACKAGE_VAR_NAME);
 		codegen.addNewPackage("appmodel", Constants.PACKAGE_NAME); 	// TODO: confirm container value.
 		codegen.addAssignment(Constants.PACKAGE_VAR_NAME, Constants.TEMP_VAR_ASSIGNMENT);
-	}	
+	}
+	
+	private static void generateRDLFile() {
+		prepareRDLFile();
+		codegen.generateToFile(Constants.RDL_OUTPUT);
+	}
+	
 }
