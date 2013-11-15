@@ -1,4 +1,4 @@
-.metadata/.*
+.metadata/
 
 # Java class files
 *.class
