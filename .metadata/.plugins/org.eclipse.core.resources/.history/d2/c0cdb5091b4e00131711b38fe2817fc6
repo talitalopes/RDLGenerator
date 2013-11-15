@@ -1,0 +1,8 @@
+package br.ufrj.cos.prisma;
+
+public class XPDLGraph {
+
+	public static void createGraph() {
+		
+	}
+}

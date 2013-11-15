@@ -1,0 +1,24 @@
+package br.ufrj.cos.prisma;
+
+import java.io.File;
+
+public class XPDLGraph {
+
+	
+	public static void getGraph(File f) {
+		
+	}
+	
+	private static void readXPDL(File f) {
+		
+	}
+	
+	private static void createNodes() {
+		
+	}
+	
+	private static void createEdges() {
+		
+	}
+	
+}

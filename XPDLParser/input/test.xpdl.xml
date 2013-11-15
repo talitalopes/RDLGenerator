@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Package xmlns="http://www.wfmc.org/2004/XPDL2.0alpha"
+	xmlns:deprecated="http://www.wfmc.org/2002/XPDL1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	Id="16" Name="XPDL BPMN Example 1"
+	xsi:schemaLocation="http://www.wfmc.org/2004/XPDL2.0alpha      http://www.wfmc.org/standards/docs/TC-1025_bpmnxpdl_24.xsd">
+	<PackageHeader>
+		<XPDLVersion>
+			2.0
+		</XPDLVersion>
+		<Vendor>
+			ProM
+		</Vendor>
+		<Created>
+			14/09/2013 03:43
+		</Created>
+		<Description>
+			ProM Mined BPMN Model
+		</Description>
+		<Documentation>
+			ProM Mined BPMN Model
+		</Documentation>
+
+	</PackageHeader>
+	<Pools />
+	<WorkflowProcesses>
+		<WorkflowProcess AccessLevel="PUBLIC" AdHoc="false"
+			AdHocOrdering="Parallel" EnableInstanceCompensation="false" Id="WFP_0"
+			Name="Workflow Process 0" ProcessType="None" Status="None"
+			SuppressJoinFailure="false">
+
+			<ProcessHeader>
+				<Created>
+					14/09/2013 03:43
+				</Created>
+				<Priority>
+					Normal
+				</Priority>
+
+			</ProcessHeader>
+			<RedefinableHeader>
+				<Author>
+					ProM
+				</Author>
+				<Version>
+					2.0
+				</Version>
+
+			</RedefinableHeader>
+			<ActivitySets />
+			<Activities>
+				<Activity Id="-217769222" Name="ClassExtension_PaletteRoot [4]" />
+				<Activity Id="1482671067" Name="ClassExtension_ActionBarContributor [1]" />
+				<Activity Id="-1196856621"
+					Name="ClassExtension_AbstractConnectionEditPart [3]" />
+				<Activity Id="292702583"
+					Name="ClassExtension_GraphicalEditorWithFlyoutPalette [5]" />
+				<Activity Id="1047840537" Name="ClassExtension_AbstractGraphicalEditPart [8]" />
+				<Activity Id="2067281209" Name="ClassExtension_ConnectionEditPolicy [1]" />
+				<Activity Id="-1537233083" Name="ClassExtension_XYLayoutEditPolicy [4]" />
+				<Activity Id="1315553208" Name="ClassExtension_ComponentEditPolicy [1]" />
+				<Activity Id="-26626835" Name="ClassExtension_GraphicalNodeEditPolicy [3]" />
+				<Activity Id="1752820274" Name="ClassExtension_Command [11]" />
+				<Activity Id="-2144031553" Name="START EVENT">
+					<Event>
+						<StartEvent Trigger="None" />
+
+					</Event>
+
+				</Activity>
+				<Activity Id="-237194053" Name="END EVENT">
+					<Event>
+						<EndEvent />
+
+					</Event>
+
+				</Activity>
+				<Activity Id="-1980877097" Name="EXCLUSIVE-GATEWAY">
+					<Route GatewayType="XOR" MarkerVisible="true" />
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Split Type="XOR">
+								<TransitionRefs>
+									<TransitionRef Id="257529122" Name="257529122" />
+									<TransitionRef Id="327363913" Name="327363913" />
+
+								</TransitionRefs>
+
+							</Split>
+
+						</TransitionRestriction>
+
+					</TransitionRestrictions>
+
+				</Activity>
+				<Activity Id="1575161971" Name="EXCLUSIVE-GATEWAY">
+					<Route GatewayType="XOR" MarkerVisible="true" />
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Split Type="XOR">
+								<TransitionRefs>
+									<TransitionRef Id="404767514" Name="404767514" />
+									<TransitionRef Id="1968969876" Name="1968969876" />
+
+								</TransitionRefs>
+
+							</Split>
+
+						</TransitionRestriction>
+
+					</TransitionRestrictions>
+
+				</Activity>
+				<Activity Id="472249311" Name="EXCLUSIVE-GATEWAY">
+					<Route GatewayType="XOR" MarkerVisible="true" />
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Split Type="XOR">
+								<TransitionRefs>
+									<TransitionRef Id="2140278597" Name="2140278597" />
+									<TransitionRef Id="-2139523751" Name="-2139523751" />
+
+								</TransitionRefs>
+
+							</Split>
+
+						</TransitionRestriction>
+
+					</TransitionRestrictions>
+
+				</Activity>
+				<Activity Id="996674586" Name="EXCLUSIVE-GATEWAY">
+					<Route GatewayType="XOR" MarkerVisible="true" />
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Join Type="XOR" />
+
+						</TransitionRestriction>
+
+					</TransitionRestrictions>
+
+				</Activity>
+				<Activity Id="1412995081" Name="EXCLUSIVE-GATEWAY">
+					<Route GatewayType="XOR" MarkerVisible="true" />
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Join Type="XOR" />
+
+						</TransitionRestriction>
+
+					</TransitionRestrictions>
+
+				</Activity>
+				<Activity Id="1471730905" Name="EXCLUSIVE-GATEWAY">
+					<Route GatewayType="XOR" MarkerVisible="true" />
+					<TransitionRestrictions>
+						<TransitionRestriction>
+							<Join Type="XOR" />
+
+						</TransitionRestriction>
+
+					</TransitionRestrictions>
+
+				</Activity>
+
+				<Activity Id="-217769223" Name="Declaration_PaletteRoot [4]" />
+				<Activity Id="1482671066" Name="Declaration_ActionBarContributor [1]" />
+				<Activity Id="-1196856622" Name="Declaration_AbstractConnectionEditPart [3]" />
+				<Activity Id="292702582"
+					Name="Declaration_GraphicalEditorWithFlyoutPalette [5]" />
+				<Activity Id="1047840536" Name="Declaration_AbstractGraphicalEditPart [8]" />
+				<Activity Id="2067281208" Name="Declaration_ConnectionEditPolicy [1]" />
+				<Activity Id="-1537233084" Name="Declaration_XYLayoutEditPolicy [4]" />
+				<Activity Id="1315553207" Name="Declaration_ComponentEditPolicy [1]" />
+				<Activity Id="-26626836" Name="Declaration_GraphicalNodeEditPolicy [3]" />
+				<Activity Id="1752820273" Name="Declaration_Command [11]" />
+			</Activities>
+			<Transitions>
+				<Transition From="-2144031553" Id="1740544769" To="292702582" />
+				<Transition From="996674586" Id="186681343" To="-237194053" />
+				<Transition From="1482671067" Id="-2042413713" To="1315553207" />
+				<Transition From="-1196856621" Id="202843805" To="-26626836" />
+				<Transition From="292702583" Id="-986513803" To="-217769223" />
+				<Transition From="1047840537" Id="-1298753212" To="-1980877097" />
+				<Transition From="-1980877097" Id="257529122" To="-1537233084" />
+				<Transition From="-1537233083" Id="-581526908" To="-1196856622" />
+				<Transition From="1315553208" Id="-1170266900" To="2067281208" />
+				<Transition From="-26626835" Id="340475221" To="1575161971" />
+				<Transition From="1575161971" Id="404767514" To="1482671066" />
+				<Transition From="1752820274" Id="2126424538" To="472249311" />
+				<Transition From="1575161971" Id="1968969876" To="996674586" />
+				<Transition From="2067281209" Id="-398398301" To="996674586" />
+				<Transition From="-1980877097" Id="327363913" To="1412995081" />
+				<Transition From="472249311" Id="2140278597" To="1412995081" />
+				<Transition From="1412995081" Id="564210490" To="1047840536" />
+				<Transition From="-217769222" Id="-594027814" To="1471730905" />
+				<Transition From="472249311" Id="-2139523751" To="1471730905" />
+				<Transition From="1471730905" Id="841336021" To="1752820273" />
+
+				<Transition From="1315553207" Id="-2042413712" To="1315553208" />
+				<Transition From="-26626836" Id="202843806" To="-26626835" />
+				<Transition From="-217769223" Id="-986513802" To="-217769222" />
+				<Transition From="-1537233084" Id="257529123" To="-1537233083" />
+				<Transition From="-1196856622" Id="-581526907" To="-1196856621" />
+				<Transition From="2067281208" Id="-1170266899" To="2067281209" />
+				<Transition From="1482671066" Id="404767515" To="1482671067" />
+				<Transition From="292702582" Id="1326297892" To="292702583" />
+				<Transition From="1047840536" Id="564210491" To="1047840537" />
+				<Transition From="1752820273" Id="841336022" To="1752820274" />
+			</Transitions>
+
+		</WorkflowProcess>
+
+	</WorkflowProcesses>
+
+</Package>

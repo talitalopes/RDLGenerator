@@ -1,0 +1,32 @@
+package br.ufrj.cos.prisma;
+
+import java.io.File;
+
+public class XPDLGraph {
+
+	
+	public static void getGraph(File f) {
+		
+	}
+	
+	private static void readXPDL(File f) {
+		// read XPDL file
+		
+		// get activity elements
+		
+		// get transition elements
+		
+		// create nodes from activities
+		
+		// create edges from transitions
+	}
+	
+	private static void createNodes() {
+		
+	}
+	
+	private static void createEdges() {
+		
+	}
+	
+}
