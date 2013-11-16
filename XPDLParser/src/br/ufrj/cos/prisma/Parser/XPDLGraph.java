@@ -18,44 +18,48 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import br.ufrj.cos.prisma.util.Util;
+
 public class XPDLGraph {
 
 	private static String ACTIVITY_TAG = "Activity";
 	private static String TRANSITION_TAG = "Transition";
 	
 	private static Map<String, Node> nodesIds = new HashMap<String, Node>();
-	private static DirectedGraph<Node, DefaultEdge> g = new DefaultDirectedGraph<Node, DefaultEdge>(
-			DefaultEdge.class);
 
 	public static DirectedGraph<Node, DefaultEdge> getGraph(String f) {
 		if (f == null) {
-			log("You must provide a valid url for a XPDL model");
+			Util.log("You must provide a valid url for a XPDL model");
 			return null;
 		}
 		
-		createGraph(f);
-		return g;
+		return createGraph(f);
 	}
 
-	private static void createGraph(String fileUrl) {
+	private static DirectedGraph<Node, DefaultEdge> createGraph(String fileUrl) {
+		DirectedGraph<Node, DefaultEdge> g = new DefaultDirectedGraph<Node, DefaultEdge>(
+				DefaultEdge.class);
+		
 		// read XPDL file
 		Document doc = getDomObject(fileUrl);
 
 		// get activity elements
 		NodeList activitiesNodes = getNodesWithType(doc, ACTIVITY_TAG);
-		createNodesForActivities(activitiesNodes);
+		createNodesForActivities(g, activitiesNodes);
 
 		// get transition elements
 		NodeList transitions = getNodesWithType(doc, TRANSITION_TAG);
 
 		// create nodes for activities
-		createNodesForActivities(activitiesNodes);
+		createNodesForActivities(g, activitiesNodes);
 		
 		// create edges for transitions
-		createEdges(transitions);
+		createEdges(g, transitions);
+		
+		return g;
 	}
 
-	private static void createNodesForActivities(NodeList nodes) {
+	private static void createNodesForActivities(DirectedGraph<Node, DefaultEdge> g, NodeList nodes) {
 		for (int temp = 0; temp < nodes.getLength(); temp++) {
 			Node node = nodes.item(temp);
 			if (node == null || node.getNodeType() != Node.ELEMENT_NODE) {
@@ -70,7 +74,7 @@ public class XPDLGraph {
 		}
 	}
 	
-	private static void createEdges(NodeList transitions) {
+	private static void createEdges(DirectedGraph<Node, DefaultEdge> g, NodeList transitions) {
 		for (int temp = 0; temp < transitions.getLength(); temp++) {
 			Node sequenceNode = transitions.item(temp);
 			if (sequenceNode == null
@@ -82,9 +86,9 @@ public class XPDLGraph {
 			String sourceId = sequenceElement.getAttribute("From");
 			String targetId = sequenceElement.getAttribute("To");
 
-			log(String.format(
-					"Source: %s |  Target: %s | existskey: %b", sourceId,
-					targetId, nodesIds.containsKey(sourceId)));
+//			log(String.format(
+//					"Source: %s |  Target: %s | existskey: %b", sourceId,
+//					targetId, nodesIds.containsKey(sourceId)));
 
 			if (nodesIds.get(sourceId) != null
 					&& nodesIds.get(targetId) != null) {
@@ -119,8 +123,4 @@ public class XPDLGraph {
 		return doc.getElementsByTagName(type);
 	}
 	
-	private static void log(String message) {
-		System.out.println(message);
-	}
-
 }

@@ -11,4 +11,7 @@ public class Constants {
 	public static final String PACKAGE_VAR_NAME = "appPack";
 	public static final String TEMP_VAR_ASSIGNMENT = "$0000RDLTempVar";
 
+	public static final int JOIN_GATEWAY = 0;
+	public static final int SPLIT_GATEWAY = 1;
+	public static final CharSequence CLASS_EXTENSION_PREFIX = "ClassExtension";
 }
