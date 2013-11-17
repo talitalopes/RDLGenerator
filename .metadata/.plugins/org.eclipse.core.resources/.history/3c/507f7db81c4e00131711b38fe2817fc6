@@ -1,8 +1,0 @@
-package br.ufrj.cos.prisma.Parser;
-
-public class Parser {
-
-	public static void Main(String args[]) {
-		
-	}
-}
