@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import org.w3c.dom.Node;
+import br.ufrj.cos.prisma.model.ModelNode;
 
 /**
  * Detecting cycles in a directed graph
@@ -14,45 +14,46 @@ import org.w3c.dom.Node;
  */
 public class CycleFinder implements DfsVisitor {
 
-	Stack<Node> path = new Stack<Node>();
+	Stack<ModelNode> path = new Stack<ModelNode>();
 
-	List<Stack<Node>> cycles = new ArrayList<Stack<Node>>();
+	List<Stack<ModelNode>> cycles = new ArrayList<Stack<ModelNode>>();
 
-	public void preorder(Node v) {
-		System.out.println("preorder");
+	public void preorder(ModelNode v) {
 		path.push(v);
 	}
 
-	public void postorder(Node v) {
-		System.out.println("postorder");
+	public void postorder(ModelNode v) {
 		path.pop();
 	}
 
-	public void beforeChild(Node v) {
-		System.out.println("beforeChild");
+	public void beforeChild(ModelNode v) {
 		findBackEdge(v);
 	}
 
-	public void afterChild(Node v) {
-		System.out.println("afterChild");
+	public void afterChild(ModelNode v) {
 	}
 
-	public void skipChild(Node v) {
+	public void skipChild(ModelNode v) {
 		findBackEdge(v);
 	}
 
-	private void findBackEdge(Node v) {
+	private void findBackEdge(ModelNode v) {
 	        int i = path.indexOf(v);
 	        if(i != -1) {
-	        	Stack<Node> cycle = new Stack<Node>();
+	        	Stack<ModelNode> cycle = new Stack<ModelNode>();
 	        	for (int j = i; j < path.size(); j++) {
-	        		cycle.add(path.get(j)); // new ArrayList(path[i..-1])
+	        		cycle.add(path.get(j));
+	        		
+	        		if (j == path.size() - 1) {
+	        			path.get(j).setBeginLoop(true);
+	        			path.get(j).setEndLoop(true);
+	        		}
 	        	}
 	            cycles.add(cycle);
 	        }       
 	    }
 
-	public List<Stack<Node>> cycles() {
+	public List<Stack<ModelNode>> cycles() {
 		return cycles;
 	}
 

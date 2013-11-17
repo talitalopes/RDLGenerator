@@ -13,22 +13,26 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import br.ufrj.cos.prisma.BPMNAPI.BPMNCodeGenerator;
+import br.ufrj.cos.prisma.model.ModelNode;
+import br.ufrj.cos.prisma.model.XPDLGraph;
 import br.ufrj.cos.prisma.util.Constants;
 import br.ufrj.cos.prisma.util.Util;
 
-public class Parser {
-	private static DirectedGraph<Node, DefaultEdge> modelGraph;
-	private static Node startNode;
-	private static Node endNode;
+public class XPDLParser {
+	
+	private static XPDLGraph graph;
+	private static DirectedGraph<ModelNode, DefaultEdge> modelGraph;
+	private static ModelNode startNode;
+	private static ModelNode endNode;
 
 	private static BPMNCodeGenerator codegen = new BPMNCodeGenerator();
 
 	public static void main(String[] args) {
-		modelGraph = XPDLGraph.getGraph(Constants.XPDLFile);
-
-		findStartAndEndVertexs();
-		Util.log("Start node: " + ((Element) startNode).getAttribute("Name"));
-		Util.log("End node: " + ((Element) endNode).getAttribute("Name"));
+		graph = new XPDLGraph(Constants.XPDLFile);
+		modelGraph = graph.getGraph();
+		
+		Util.log("Start node: " + ((Element) graph.getStartNode().getNode()).getAttribute("Name"));
+		Util.log("End node: " + ((Element) graph.getEndNode().getNode()).getAttribute("Name"));
 
 		if (startNode == null || endNode == null) {
 			Util.log("Couldn't find start or end node.");
@@ -40,25 +44,15 @@ public class Parser {
 		generateRDLFile();
 	}
 
-	private static void findStartAndEndVertexs() {
-		for (Node n: modelGraph.vertexSet()) {
-			if (modelGraph.inDegreeOf(n) == 0)
-				startNode = n;
-			if (modelGraph.outDegreeOf(n) == 0)
-				endNode = n;
-		}
-
-	}
-
 	private static void traverseGraph() {
 		Set<String> visitedNodes = new HashSet<String>();
 
 		// Root node = start Node
-		List<Node> nodesToVisit = new ArrayList<Node>();
+		List<ModelNode> nodesToVisit = new ArrayList<ModelNode>();
 		nodesToVisit.add(startNode);
 
 		while (nodesToVisit.size() > 0) {
-			Node visitingNode = nodesToVisit.remove(0);
+			ModelNode visitingNode = nodesToVisit.remove(0);
 			Element visitingElement = (Element) visitingNode;
 			visitedNodes.add(visitingElement.getAttribute("Id"));
 
@@ -69,6 +63,8 @@ public class Parser {
 				boolean hasCycles = DFS(visitingNode);
 				
 				if (hasCycles) {
+					Util.log(":" + nodesMap.get(startNode).predecessor);
+					
 					addLoop();
 					addGateway(Constants.JOIN_GATEWAY, visitingNode);
 				}
@@ -104,7 +100,7 @@ public class Parser {
 		Util.log("Finished");
 	}
 
-	private static void addClassExtensionOrMethodExtension(Node node) {
+	private static void addClassExtensionOrMethodExtension(ModelNode node) {
 		Element el = (Element) node;
 
 		if (el.getAttribute("Name").contains(Constants.CLASS_EXTENSION_PREFIX)) {
@@ -115,7 +111,7 @@ public class Parser {
 		}
 	}
 
-	private static void addGateway(int type, Node node) {
+	private static void addGateway(int type, ModelNode node) {
 		Util.log("Add Gateway");
 	}
 	
@@ -142,12 +138,12 @@ public class Parser {
 		codegen.generateToFile(Constants.RDL_OUTPUT);
 	}
 
-	private static Map<Node, DFSNode> nodesMap = new HashMap<Node, DFSNode>();
-	private static boolean DFS(Node startNode) {
-		Set<Node> nodes = modelGraph.vertexSet();
+	private static Map<ModelNode, SearchNode> nodesMap = new HashMap<ModelNode, SearchNode>();
+	private static boolean DFS(ModelNode startNode) {
+		Set<ModelNode> nodes = modelGraph.vertexSet();
 		
-		for (Node n: nodes) {
-			DFSNode node = new DFSNode();
+		for (ModelNode n: nodes) {
+			SearchNode node = new SearchNode();
 			node.visited = false;
 			node.predecessor = null;
 			node.node = n;
@@ -158,12 +154,12 @@ public class Parser {
 		return DFSVisit(nodesMap.get(startNode), nodesMap.get(startNode));
 	}
 	
-	private static boolean DFSVisit(DFSNode targetNode, DFSNode node) {
+	private static boolean DFSVisit(SearchNode targetNode, SearchNode node) {
 		boolean hasCycles = false;
 		node.visited = true;
 		
 		for (DefaultEdge edge: modelGraph.outgoingEdgesOf(node.node)) {
-			DFSNode currentNode = nodesMap.get(modelGraph.getEdgeTarget(edge));
+			SearchNode currentNode = nodesMap.get(modelGraph.getEdgeTarget(edge));
 			
 			if (currentNode == targetNode) {
 				Util.log("Has cycles");
@@ -171,16 +167,44 @@ public class Parser {
 			}
 			
 			if (!currentNode.visited) {
-				nodesMap.get(modelGraph.getEdgeTarget(edge)).predecessor = node.node;
+				SearchNode sn = nodesMap.get(modelGraph.getEdgeTarget(edge));
+				sn.predecessor = node.node.getNode();
+				nodesMap.put(modelGraph.getEdgeTarget(edge), sn);
+				
 				hasCycles = DFSVisit(targetNode, nodesMap.get(modelGraph.getEdgeTarget(edge)));	
 			}
 		}
 		
 		return hasCycles;
 	}
-		
-	static private class DFSNode {
-		public Node node;
+	
+//	private static void smallestPath(ModelNode startNode, ModelNode endNode) {
+//		List<SearchNode> path = new ArrayList<SearchNode>();
+//		List<SearchNode> queue = new ArrayList<SearchNode>();
+//		
+//		SearchNode node = new SearchNode();
+//		node.node = startNode;
+//		node.predecessor = null;
+//		path.add(node);
+//		
+//		for (DefaultEdge edge: modelGraph.outgoingEdgesOf(startNode)) {
+//			SearchNode n = new SearchNode();
+//			n.node = modelGraph.getEdgeTarget(edge);
+//			n.predecessor = startNode.getNode();
+//			queue.add(n);
+//		}
+//		
+//		while (queue.size() > 0) {
+//			SearchNode currentNode = queue.get(0);
+//			
+//			if (currentNode == endNode.getNode())
+//				return;
+//			
+//		}
+//	}
+	
+	static private class SearchNode {
+		public ModelNode node;
 		public Boolean visited;
 		public Node predecessor;
 	}

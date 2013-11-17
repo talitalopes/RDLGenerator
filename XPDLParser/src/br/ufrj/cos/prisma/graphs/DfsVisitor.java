@@ -1,6 +1,6 @@
 package br.ufrj.cos.prisma.graphs;
 
-import org.w3c.dom.Node;
+import br.ufrj.cos.prisma.model.ModelNode;
 
 /**
  * Adapted from cycle-finder.groovy 
@@ -8,13 +8,13 @@ import org.w3c.dom.Node;
  * **/
 public interface DfsVisitor {
 
-	public void preorder(Node v);
+	public void preorder(ModelNode v);
 
-	public void postorder(Node v);
+	public void postorder(ModelNode v);
 
-	public void beforeChild(Node v);
+	public void beforeChild(ModelNode v);
 
-	public void afterChild(Node v);
+	public void afterChild(ModelNode v);
 
-	public void skipChild(Node v);
+	public void skipChild(ModelNode v);
 }

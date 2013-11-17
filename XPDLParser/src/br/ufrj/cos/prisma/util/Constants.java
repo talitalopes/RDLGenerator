@@ -14,4 +14,10 @@ public class Constants {
 	public static final int JOIN_GATEWAY = 0;
 	public static final int SPLIT_GATEWAY = 1;
 	public static final CharSequence CLASS_EXTENSION_PREFIX = "ClassExtension";
+	
+	public static final boolean VERBOSE = true;
+	
+	public static String ACTIVITY_TAG = "Activity";
+	public static String TRANSITION_TAG = "Transition";
+
 }
