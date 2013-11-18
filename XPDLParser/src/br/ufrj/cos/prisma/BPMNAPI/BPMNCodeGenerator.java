@@ -221,7 +221,6 @@ public class BPMNCodeGenerator {
 		bpmn_ii = new ForkBPMN(intermediateCode.size());
 		this.addCode(bpmn_ii);
 		forkStack.push(bpmn_ii);
-
 	}
 
 	public void addJoin() {

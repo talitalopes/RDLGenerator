@@ -11,4 +11,12 @@ public class ForkBPMN extends BPMNCode {
 		
 	}
 
+	public String getCode() {
+		StringBuffer sb = new StringBuffer();	
+			
+		sb.append("<exclusiveGateway id=\"_" + this.getAddress() + "\" name=\"Gateway\" gatewayDirection=\"Diverging\" />");
+		sb.append(this.getTransitions());			
+		return sb.toString();
+	}
+
 }

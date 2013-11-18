@@ -43,10 +43,10 @@ public class CycleFinder implements DfsVisitor {
 	        	Stack<ModelNode> cycle = new Stack<ModelNode>();
 	        	for (int j = i; j < path.size(); j++) {
 	        		cycle.add(path.get(j));
+	        		path.get(j).setInsideLoop(true);
 	        		
 	        		if (j == path.size() - 1) {
 	        			path.get(j).setBeginLoop(true);
-	        			path.get(j).setEndLoop(true);
 	        		}
 	        	}
 	            cycles.add(cycle);

@@ -6,14 +6,15 @@ public class ModelNode {
 
 	Node node;
 	boolean beginLoop;
-	boolean endLoop;
+	boolean visited;
+	boolean insideLoop;
 	
 	public ModelNode() {
 	}
 	
 	public ModelNode(Node n) {
 		this.beginLoop = false;
-		this.endLoop = false;
+		this.visited = false;
 		this.node = n;
 	}
 	
@@ -33,12 +34,20 @@ public class ModelNode {
 		this.beginLoop = beginLoop;
 	}
 
-	public boolean isEndLoop() {
-		return beginLoop;
+	public boolean isVisited() {
+		return visited;
 	}
 	
-	public void setEndLoop(boolean endLoop) {
-		this.endLoop = endLoop;
+	public void setVisited(boolean visited) {
+		this.visited = visited;
+	}
+
+	public boolean isInsideLoop() {
+		return insideLoop;
+	}
+
+	public void setInsideLoop(boolean insideLoop) {
+		this.insideLoop = insideLoop;
 	}
 
 }

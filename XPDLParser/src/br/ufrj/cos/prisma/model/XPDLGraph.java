@@ -21,6 +21,7 @@ import br.ufrj.cos.prisma.util.Util;
 public class XPDLGraph {
 
 	DirectedGraph<ModelNode, DefaultEdge> graph;
+	Map<ModelNode, Stack<ModelNode>> cyclesMap;
 	ModelNode startNode;
 	ModelNode endNode;
 	Document doc;
@@ -28,6 +29,7 @@ public class XPDLGraph {
 	public XPDLGraph() {
 		this.graph = new DefaultDirectedGraph<ModelNode, DefaultEdge>(
 				DefaultEdge.class);
+		this.cyclesMap = new HashMap<ModelNode, Stack<ModelNode>>();
 	}
 	
 	public XPDLGraph(String model) {
@@ -38,6 +40,7 @@ public class XPDLGraph {
 		
 		this.graph = new DefaultDirectedGraph<ModelNode, DefaultEdge>(
 				DefaultEdge.class);
+		this.cyclesMap = new HashMap<ModelNode, Stack<ModelNode>>();
 		this.doc = Util.getDomObject(model);
 		
 		createGraph();
@@ -104,7 +107,7 @@ public class XPDLGraph {
 		DFS dfs = new DFS(this.graph);
 		dfs.visit(cycleFinder);
 
-		printCycles(cycleFinder);
+		mapCycles(cycleFinder);
 	}
 	
 	private void findStartAndEndVertexs() {
@@ -116,13 +119,13 @@ public class XPDLGraph {
 		}
 	}
 	
-	private void printCycles(CycleFinder cycleFinder) {
+	private void mapCycles(CycleFinder cycleFinder) {
 		List<Stack<ModelNode>> cycles = cycleFinder.cycles();
-		Util.log("Detected Cycles: " + cycles.size());
-
+		
 		for (int i = 0; i < cycles.size(); i++) {
 			Stack<ModelNode> cycle = cycleFinder.cycles().get(i);
-
+			this.cyclesMap.put(cycle.get(cycle.size() - 1), cycle);
+			
 			String path = "";
 			for (int j = 0; j < cycle.size(); j++) {
 				String format = (j == cycle.size() - 1) ? "%s" : "%s --> ";
@@ -132,6 +135,10 @@ public class XPDLGraph {
 			}
 			Util.log(String.format("Cycle: %d -- Path: %s", i, path));
 		}
+	}
+	
+	public Stack<ModelNode> getCycleForNode(ModelNode node) {
+		return this.cyclesMap.get(node);
 	}
 	
 	public void addNode (ModelNode node) {
