@@ -45,7 +45,7 @@ public class DFS {
             }
         } 
     }
-    
+
     private void dfsVisit(ModelNode u, DfsVisitor visitor) {
         visited.put(u, true);
         
@@ -63,5 +63,31 @@ public class DFS {
             }
         }
         visitor.postorder(u);
+    }
+    
+    public void dfsVisit(ModelNode startNode, String nodeName, DfsVisitor visitor) {
+    	visited.put(startNode, true);
+        
+        visitor.preorder(startNode);
+        
+        for(DefaultEdge edge : g.outgoingEdgesOf(startNode)) {
+        	ModelNode v = g.getEdgeTarget(edge);
+        	
+        	if (v != startNode && v.getName().contains(nodeName)) {
+        		visitor.skipChild(v);
+        		v.setEndIf(true);
+        		v.setVisited(false);
+        		return;
+        	}
+        	
+            if(!visited.get(v)) {
+                visitor.beforeChild(v);
+                dfsVisit(v, nodeName, visitor);
+                visitor.afterChild(v);
+            } else {
+                visitor.skipChild(v);
+            }
+        }
+        visitor.postorder(startNode);
     }
 }
