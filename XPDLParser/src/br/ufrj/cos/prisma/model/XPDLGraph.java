@@ -15,6 +15,7 @@ import org.w3c.dom.NodeList;
 
 import br.ufrj.cos.prisma.graphs.CycleFinder;
 import br.ufrj.cos.prisma.graphs.DFS;
+import br.ufrj.cos.prisma.graphs.GatewayFinder;
 import br.ufrj.cos.prisma.util.Constants;
 import br.ufrj.cos.prisma.util.Util;
 
@@ -110,12 +111,23 @@ public class XPDLGraph {
 		mapCycles(cycleFinder);
 	}
 	
+	public Stack<ModelNode> findNextGateway(ModelNode startNode) {
+		GatewayFinder gtwFinder = new GatewayFinder();
+		DFS dfs = new DFS(this.graph);
+		dfs.dfsVisit(startNode, "GATEWAY", gtwFinder);
+		
+		return gtwFinder.getPath();
+	}
+	
 	private void findStartAndEndVertexs() {
 		for (ModelNode n: this.graph.vertexSet()) {
-			if (this.graph.inDegreeOf(n) == 0)
+			if (this.graph.inDegreeOf(n) == 0) {
 				setStartNode(n);
-			if (this.graph.outDegreeOf(n) == 0)
+			} 
+			
+			if (this.graph.outDegreeOf(n) == 0) {
 				setEndNode(n);
+			}
 		}
 	}
 	
@@ -124,7 +136,8 @@ public class XPDLGraph {
 		
 		for (int i = 0; i < cycles.size(); i++) {
 			Stack<ModelNode> cycle = cycleFinder.cycles().get(i);
-			this.cyclesMap.put(cycle.get(cycle.size() - 1), cycle);
+			ModelNode loopBegin = cycle.get(0); //cycle.size() - 1
+			this.cyclesMap.put(loopBegin, cycle);
 			
 			String path = "";
 			for (int j = 0; j < cycle.size(); j++) {
