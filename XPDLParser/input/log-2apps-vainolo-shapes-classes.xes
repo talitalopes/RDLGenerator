@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7" xmlns="http://www.xes-standard.org/">
+	<string key="concept:name" value="Framework process"/>
+	<trace>
+		<string key="concept:name" value="vainolo"/>
+		<id key="identity:id" value="A43402C8-E867-4744-BF34-E03466D3D486"/>
+		<event>
+			<id key="identity:id" value="FBB54B29-1972-45BC-BE97-5B332A3A9926"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="28C0119D-4F70-46F8-A947-3D54D076B2D7"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.palette.PaletteRoot"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="2B954951-F86F-4984-AE27-2BD88BD1C171"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="50B047E8-3E8F-4BF5-800F-EA905E14B329"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractGraphicalEditPart"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="85E7E341-0A47-4270-B1F2-9BAD03ACF4E3"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractGraphicalEditPart"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="1FEAF6FB-13B5-4254-972B-EF00CB1B5E5B"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editpolicies.XYLayoutEditPolicy"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="EE92260C-28AA-4F4E-9734-08D53261DE88"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="387E16AF-E30F-4E3B-8FF9-395D8396CD3E"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractGraphicalEditPart"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="FCE46FB4-1B27-4C03-AE4A-9EFF4ECC5875"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractConnectionEditPart"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="5BC4C4C1-5536-4641-8A94-DFF0F6D61DF5"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editpolicies.GraphicalNodeEditPolicy"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="08470A25-BA3E-4919-A73D-C5F3183CD07D"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="077666A9-9401-4444-8D10-4B5DB470617E"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="64F65A85-5D55-4F59-92FD-19EC43AE9881"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="2AAC2F49-9DEE-4246-BBC3-849D22FEA53E"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.ui.actions.ActionBarContributor"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="054680C8-1FA6-4D33-895E-5FFCF39FE58C"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editpolicies.ComponentEditPolicy"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="240D4AB9-C09F-4493-9EF4-BFAA8BBE1FAB"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editpolicies.ConnectionEditPolicy"/>
+			<date key="time:timestamp" value="2013-11-30T21:32:25.999-02:00"/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="org.eclipse.gef.examples.shapes"/>
+		<id key="identity:id" value="519B0DFC-7BD2-4D42-B2F7-FA1DC2995B4E"/>
+		<event>
+			<id key="identity:id" value="00C4757B-F779-4988-ACAF-2166C62D856F"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.ContextMenuProvider"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="C0CA38D8-C635-4962-86E9-AC3B7AE29A53"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.ui.actions.ActionBarContributor"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="3B79AC16-D2E1-4178-AA09-F2733010314D"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="E99ABBCD-7720-4883-A1FB-0CB76A255541"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.ui.parts.ContentOutlinePage"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="C27543B1-4B79-4AE9-8A04-E2150C92C829"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="0028305D-529F-42A0-9034-7CF3AB9E71DD"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="83D4DB77-74AD-4E57-98D9-1F02B618136E"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="F5D3671F-F6B9-4166-88E6-98C0D66CF2AA"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="4A7BE1C3-08A9-44F8-8843-964BD426366A"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="2D2BA428-19AC-4B38-9563-54155188ADAB"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.commands.Command"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="AF86C0AB-7C65-4D82-A0C4-844A8D20AA0F"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractGraphicalEditPart"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="E241F4E6-3230-4DFC-BBDF-C8B55E40D8D5"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editpolicies.ComponentEditPolicy"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="B9FA2E83-E266-46B2-B37F-026070F86737"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractTreeEditPart"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="656505CD-4E3A-4F32-95DA-B73DBA9D5701"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractTreeEditPart"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="80E6C711-22D4-4761-8700-1AADD76A3954"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractGraphicalEditPart"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="EED7425C-484F-40A2-A5F5-61A67F8E6162"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editpolicies.XYLayoutEditPolicy"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+		<event>
+			<id key="identity:id" value="5BC18DC0-C171-4D41-8CD2-86C6B5EA6119"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="concept:name" value="CLASS_EXTENSION_org.eclipse.gef.editparts.AbstractConnectionEditPart"/>
+			<date key="time:timestamp" value="2004-10-06T00:00:00-03:00"/>
+		</event>
+	</trace>
+</log>

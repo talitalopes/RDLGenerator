@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions id="Definition" targetNamespace="http://www.jboss.org/drools"
+	typeLanguage="http://www.java.com/javaTypes" expressionLanguage="http://www.mvel.org/2.0"
+	xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+	xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:tns="http://www.jboss.org/drools">
+	<itemDefinition id="_condStatus" structureRef="Boolean" />
+	<process processType="Private" isExecutable="true"
+		id="org.reusefusion.reuse" name="Reuse Process">
+		<!-- process variables -->
+		<property id="condStatus9" itemSubjectRef="_condStatus" />
+		<property id="condStatus15" itemSubjectRef="_condStatus" />
+		<property id="condStatus22" itemSubjectRef="_condStatus" />
+		<!-- Start Process -->
+		<startEvent id="_100000" name="StartProcess" />
+		<sequenceFlow id="_-1-_0" sourceRef="_100000" targetRef="_0" />
+		<!-- nodes -->
+		<task id="_0" name="ImportModel" tns:taskName="ImportModel">
+			<ioSpecification>
+				<dataInput id="_0MODEL_URLInput" name="MODEL_URL" />
+				<inputSet>
+					<dataInputRefs>_0MODEL_URLInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_0MODEL_URLInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">models/gef.uml</from>
+					<to xsi:type="tFormalExpression">_0MODEL_URLInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_0to_1" sourceRef="_0" targetRef="_1" />
+		<!-- nodes -->
+		<task id="_1" name="ExportModel" tns:taskName="ExportModel">
+			<ioSpecification>
+				<dataInput id="_1MODEL_URLInput" name="MODEL_URL" />
+				<inputSet>
+					<dataInputRefs>_1MODEL_URLInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_1MODEL_URLInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">models/app.uml</from>
+					<to xsi:type="tFormalExpression">_1MODEL_URLInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_1to_2" sourceRef="_1" targetRef="_2" />
+		<!-- nodes -->
+		<task id="_2" name="Declaration" tns:taskName="Declaration">
+			<ioSpecification>
+				<dataInput id="_2TYPE_NAMEInput" name="TYPE_NAME" />
+				<dataInput id="_2VAR_NAMEInput" name="VAR_NAME" />
+				<inputSet>
+					<dataInputRefs>_2TYPE_NAMEInput</dataInputRefs>
+					<dataInputRefs>_2VAR_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_2TYPE_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">void</from>
+					<to xsi:type="tFormalExpression">_2TYPE_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_2VAR_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_2VAR_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_2to_3" sourceRef="_2" targetRef="_3" />
+		<!-- nodes -->
+		<task id="_3" name="NewPackage" tns:taskName="NewPackage">
+			<ioSpecification>
+				<dataInput id="_3CONTAINER_NAMEInput" name="CONTAINER_NAME" />
+				<dataInput id="_3PACKAGE_NAMEInput" name="PACKAGE_NAME" />
+				<inputSet>
+					<dataInputRefs>_3CONTAINER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_3PACKAGE_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_3CONTAINER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appmodel</from>
+					<to xsi:type="tFormalExpression">_3CONTAINER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_3PACKAGE_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_3PACKAGE_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_3to_4" sourceRef="_3" targetRef="_4" />
+		<!-- nodes -->
+		<task id="_4" name="Assignment" tns:taskName="Assignment">
+			<ioSpecification>
+				<dataInput id="_4VAR_NAMEInput" name="VAR_NAME" />
+				<dataInput id="_4EXPRInput" name="EXPR" />
+				<inputSet>
+					<dataInputRefs>_4VAR_NAMEInput</dataInputRefs>
+					<dataInputRefs>_4EXPRInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_4VAR_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_4VAR_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_4EXPRInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">$0000RDLTempVar</from>
+					<to xsi:type="tFormalExpression">_4EXPRInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_4to_5" sourceRef="_4" targetRef="_5" />
+		<!-- nodes -->
+		<task id="_5" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_5SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_5SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_5SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_5SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_5SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_5SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_5SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">GraphicalEditorWithFlyoutPalette [5]</from>
+					<to xsi:type="tFormalExpression">_5SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_5SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_5SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_5SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_5SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_5to_6" sourceRef="_5" targetRef="_6" />
+		<!-- nodes -->
+		<task id="_6" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_6SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_6SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_6SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_6SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_6SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_6SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_6SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">PaletteRoot [4]</from>
+					<to xsi:type="tFormalExpression">_6SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_6SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_6SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_6SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_6SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_6to_7" sourceRef="_6" targetRef="_7" />
+		<!-- nodes -->
+		<task id="_7" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_7SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_7SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_7SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_7SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_7SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_7SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_7SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">Command [11]</from>
+					<to xsi:type="tFormalExpression">_7SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_7SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_7SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_7SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_7SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_7to_8" sourceRef="_7" targetRef="_8" />
+		<exclusiveGateway id="_8" name="Gateway"
+			gatewayDirection="Converging" />
+		<sequenceFlow id="_8to_9" sourceRef="_8" targetRef="_9" />
+		<!-- nodes -->
+		<task id="_9" name="EvalConditionBPMN" tns:taskName="EvalConditionBPMN">
+			<ioSpecification>
+				<dataInput id="_9CURRENT_ADDRESSInput" name="CURRENT_ADDRESS" />
+				<dataInput id="_9CONDITIONInput" name="CONDITION" />
+				<inputSet>
+					<dataInputRefs>_9CURRENT_ADDRESSInput</dataInputRefs>
+					<dataInputRefs>_9CONDITIONInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_9CURRENT_ADDRESSInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">9</from>
+					<to xsi:type="tFormalExpression">_9CURRENT_ADDRESSInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_9CONDITIONInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">Loop?</from>
+					<to xsi:type="tFormalExpression">_9CONDITIONInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_9to_10" sourceRef="_9" targetRef="_10" />
+		<exclusiveGateway id="_10" name="Gateway"
+			gatewayDirection="Diverging" />
+		<sequenceFlow id="_10to_11" sourceRef="_10" targetRef="_11">
+			<conditionExpression xsi:type="tFormalExpression"
+				language="http://www.java.com/java">return condStatus9;
+			</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="_10to_13" sourceRef="_10" targetRef="_13">
+			<conditionExpression xsi:type="tFormalExpression"
+				language="http://www.java.com/java">return !condStatus9;
+			</conditionExpression>
+		</sequenceFlow>
+		<exclusiveGateway id="_11" name="Gateway"
+			gatewayDirection="Converging" />
+		<sequenceFlow id="_11to_12" sourceRef="_11" targetRef="_12" />
+		<!-- nodes -->
+		<task id="_12" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_12SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_12SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_12SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_12SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_12SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_12SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_12SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">Command [11]</from>
+					<to xsi:type="tFormalExpression">_12SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_12SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_12SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_12SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_12SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_12to_8" sourceRef="_12" targetRef="_8" />
+		<!-- nodes -->
+		<task id="_13" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_13SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_13SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_13SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_13SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_13SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_13SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_13SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">AbstractGraphicalEditPart [8]</from>
+					<to xsi:type="tFormalExpression">_13SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_13SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_13SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_13SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_13SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_13to_14" sourceRef="_13" targetRef="_14" />
+		<exclusiveGateway id="_14" name="Gateway"
+			gatewayDirection="Converging" />
+		<sequenceFlow id="_14to_15" sourceRef="_14" targetRef="_15" />
+		<!-- nodes -->
+		<task id="_15" name="EvalConditionBPMN" tns:taskName="EvalConditionBPMN">
+			<ioSpecification>
+				<dataInput id="_15CURRENT_ADDRESSInput" name="CURRENT_ADDRESS" />
+				<dataInput id="_15CONDITIONInput" name="CONDITION" />
+				<inputSet>
+					<dataInputRefs>_15CURRENT_ADDRESSInput</dataInputRefs>
+					<dataInputRefs>_15CONDITIONInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_15CURRENT_ADDRESSInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">15</from>
+					<to xsi:type="tFormalExpression">_15CURRENT_ADDRESSInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_15CONDITIONInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">Loop?</from>
+					<to xsi:type="tFormalExpression">_15CONDITIONInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_15to_16" sourceRef="_15" targetRef="_16" />
+		<exclusiveGateway id="_16" name="Gateway"
+			gatewayDirection="Diverging" />
+		<sequenceFlow id="_16to_17" sourceRef="_16" targetRef="_17">
+			<conditionExpression xsi:type="tFormalExpression"
+				language="http://www.java.com/java">return condStatus15;
+			</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="_16to_19" sourceRef="_16" targetRef="_19">
+			<conditionExpression xsi:type="tFormalExpression"
+				language="http://www.java.com/java">return !condStatus15;
+			</conditionExpression>
+		</sequenceFlow>
+		<exclusiveGateway id="_17" name="Gateway"
+			gatewayDirection="Converging" />
+		<sequenceFlow id="_17to_18" sourceRef="_17" targetRef="_18" />
+		<!-- nodes -->
+		<task id="_18" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_18SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_18SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_18SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_18SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_18SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_18SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_18SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">AbstractGraphicalEditPart [8]</from>
+					<to xsi:type="tFormalExpression">_18SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_18SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_18SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_18SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_18SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_18to_14" sourceRef="_18" targetRef="_14" />
+		<!-- nodes -->
+		<task id="_19" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_19SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_19SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_19SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_19SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_19SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_19SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_19SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">XYLayoutEditPolicy [4]</from>
+					<to xsi:type="tFormalExpression">_19SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_19SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_19SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_19SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_19SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_19to_20" sourceRef="_19" targetRef="_20" />
+		<!-- nodes -->
+		<task id="_20" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_20SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_20SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_20SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_20SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_20SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_20SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_20SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">AbstractConnectionEditPart [3]</from>
+					<to xsi:type="tFormalExpression">_20SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_20SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_20SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_20SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_20SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_20to_21" sourceRef="_20" targetRef="_21" />
+		<!-- nodes -->
+		<task id="_21" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_21SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_21SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_21SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_21SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_21SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_21SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_21SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">GraphicalNodeEditPolicy [3]</from>
+					<to xsi:type="tFormalExpression">_21SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_21SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_21SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_21SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_21SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_21to_22" sourceRef="_21" targetRef="_22" />
+		<!-- nodes -->
+		<task id="_22" name="EvalConditionBPMN" tns:taskName="EvalConditionBPMN">
+			<ioSpecification>
+				<dataInput id="_22CURRENT_ADDRESSInput" name="CURRENT_ADDRESS" />
+				<dataInput id="_22CONDITIONInput" name="CONDITION" />
+				<inputSet>
+					<dataInputRefs>_22CURRENT_ADDRESSInput</dataInputRefs>
+					<dataInputRefs>_22CONDITIONInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_22CURRENT_ADDRESSInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">22</from>
+					<to xsi:type="tFormalExpression">_22CURRENT_ADDRESSInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_22CONDITIONInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">Loop?</from>
+					<to xsi:type="tFormalExpression">_22CONDITIONInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_22to_23" sourceRef="_22" targetRef="_23" />
+		<exclusiveGateway id="_23" name="Gateway"
+			gatewayDirection="Diverging" />
+		<sequenceFlow id="_23to_24" sourceRef="_23" targetRef="_24">
+			<conditionExpression xsi:type="tFormalExpression"
+				language="http://www.java.com/java">return condStatus22;
+			</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="_23to_27" sourceRef="_23" targetRef="_27">
+			<conditionExpression xsi:type="tFormalExpression"
+				language="http://www.java.com/java">return !condStatus22;
+			</conditionExpression>
+		</sequenceFlow>
+		<!-- nodes -->
+		<task id="_24" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_24SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_24SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_24SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_24SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_24SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_24SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_24SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">ActionBarContributor [1]</from>
+					<to xsi:type="tFormalExpression">_24SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_24SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_24SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_24SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_24SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_24to_25" sourceRef="_24" targetRef="_25" />
+		<!-- nodes -->
+		<task id="_25" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_25SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_25SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_25SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_25SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_25SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_25SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_25SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">ComponentEditPolicy [1]</from>
+					<to xsi:type="tFormalExpression">_25SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_25SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_25SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_25SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_25SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_25to_26" sourceRef="_25" targetRef="_26" />
+		<!-- nodes -->
+		<task id="_26" name="ClassExtension" tns:taskName="ClassExtension">
+			<ioSpecification>
+				<dataInput id="_26SUPER_NAMEInput" name="SUPER_NAME" />
+				<dataInput id="_26SUB_PNAMEInput" name="SUB_PNAME" />
+				<dataInput id="_26SUB_NAMEInput" name="SUB_NAME" />
+				<inputSet>
+					<dataInputRefs>_26SUPER_NAMEInput</dataInputRefs>
+					<dataInputRefs>_26SUB_PNAMEInput</dataInputRefs>
+					<dataInputRefs>_26SUB_NAMEInput</dataInputRefs>
+				</inputSet>
+				<outputSet>
+				</outputSet>
+			</ioSpecification>
+			<dataInputAssociation>
+				<targetRef>_26SUPER_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">ConnectionEditPolicy [1]</from>
+					<to xsi:type="tFormalExpression">_26SUPER_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_26SUB_PNAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">appPack</from>
+					<to xsi:type="tFormalExpression">_26SUB_PNAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+			<dataInputAssociation>
+				<targetRef>_26SUB_NAMEInput</targetRef>
+				<assignment>
+					<from xsi:type="tFormalExpression">?</from>
+					<to xsi:type="tFormalExpression">_26SUB_NAMEInput</to>
+				</assignment>
+			</dataInputAssociation>
+		</task><!-- connections -->
+		<sequenceFlow id="_26to_27" sourceRef="_26" targetRef="_27" />
+		<exclusiveGateway id="_27" name="Gateway"
+			gatewayDirection="Converging" />
+		<sequenceFlow id="_27to_28" sourceRef="_27" targetRef="_28" />
+		<!-- End Process -->
+		<endEvent id="_28" name="EndProcess">
+			<terminateEventDefinition />
+		</endEvent>
+	</process>
+</definitions>

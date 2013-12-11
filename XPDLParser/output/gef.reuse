@@ -1,0 +1,31 @@
+import 'models/gef.uml';
+export 'models/app.uml';
+
+COOKBOOK GEFProducts
+
+RECIPE main() {
+	appPack = NEW_PACKAGE(appmodel,"?");
+	CLASS_EXTENSION(GraphicalEditorWithFlyoutPalette [5], appPack, "?");
+	CLASS_EXTENSION(PaletteRoot [4], appPack, "?");
+	CLASS_EXTENSION(Command [11], appPack, "?");
+	
+	LOOP (Condition) {
+		CLASS_EXTENSION(Command [11], appPack, "?");
+	}
+	
+	CLASS_EXTENSION(AbstractGraphicalEditPart [8], appPack, "?");
+	LOOP (Condition) {
+		CLASS_EXTENSION(AbstractGraphicalEditPart [8], appPack, "?");
+	}
+	
+	CLASS_EXTENSION(XYLayoutEditPolicy [4], appPack, "?");
+	CLASS_EXTENSION(AbstractConnectionEditPart [3], appPack, "?");
+	CLASS_EXTENSION(GraphicalNodeEditPolicy [3], appPack, "?");
+	
+	CLASS_EXTENSION(ActionBarContributor [1], appPack, "?");
+	CLASS_EXTENSION(ComponentEditPolicy [1], appPack, "?");
+	CLASS_EXTENSION(ConnectionEditPolicy [1], appPack, "?");
+}
+
+
+

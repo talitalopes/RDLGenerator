@@ -1,0 +1,2513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_condStatus" structureRef="Boolean"/>
+  <bpmn2:process id="org.reusefusion.reuse" tns:version="1" tns:packageName="defaultPackage" tns:adHoc="false" name="Reuse Process" isExecutable="true" processType="Private">
+    <bpmn2:property id="condStatus41" itemSubjectRef="_condStatus"/>
+    <bpmn2:property id="condStatus45" itemSubjectRef="_condStatus"/>
+    <bpmn2:property id="condStatus50" itemSubjectRef="_condStatus"/>
+    <bpmn2:property id="condStatus57" itemSubjectRef="_condStatus"/>
+    <bpmn2:property id="condStatus69" itemSubjectRef="_condStatus"/>
+    <bpmn2:startEvent id="_100000" name="StartProcess">
+      <bpmn2:outgoing>_-1-_0</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="_-1-_0" tns:priority="1" sourceRef="_100000" targetRef="_0"/>
+    <bpmn2:task id="_0" tns:taskName="ImportModel" name="ImportModel">
+      <bpmn2:incoming>_-1-_0</bpmn2:incoming>
+      <bpmn2:outgoing>_0to_1</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_1">
+        <bpmn2:dataInput id="_0MODEL_URLInput" name="MODEL_URL"/>
+        <bpmn2:inputSet id="InputSet_1">
+          <bpmn2:dataInputRefs>_0MODEL_URLInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_1"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1">
+        <bpmn2:targetRef>_0MODEL_URLInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_1">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">models/arcade.uml</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_2">_0MODEL_URLInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_0to_1" tns:priority="1" sourceRef="_0" targetRef="_1"/>
+    <bpmn2:task id="_1" tns:taskName="ExportModel" name="ExportModel">
+      <bpmn2:incoming>_0to_1</bpmn2:incoming>
+      <bpmn2:outgoing>_1to_2</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_2">
+        <bpmn2:dataInput id="_1MODEL_URLInput" name="MODEL_URL"/>
+        <bpmn2:inputSet id="InputSet_2">
+          <bpmn2:dataInputRefs>_1MODEL_URLInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_2"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_2">
+        <bpmn2:targetRef>_1MODEL_URLInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_2">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_3">models/app.uml</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_4">_1MODEL_URLInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_1to_2" tns:priority="1" sourceRef="_1" targetRef="_2"/>
+    <bpmn2:task id="_2" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_1to_2</bpmn2:incoming>
+      <bpmn2:outgoing>_2to_3</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_3">
+        <bpmn2:dataInput id="_2TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_2VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_3">
+          <bpmn2:dataInputRefs>_2TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_2VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_3"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_3">
+        <bpmn2:targetRef>_2TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_3">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_5">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_6">_2TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_4">
+        <bpmn2:targetRef>_2VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_4">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_7">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_8">_2VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_2to_3" tns:priority="1" sourceRef="_2" targetRef="_3"/>
+    <bpmn2:task id="_3" tns:taskName="NewPackage" name="NewPackage">
+      <bpmn2:incoming>_2to_3</bpmn2:incoming>
+      <bpmn2:outgoing>_3to_4</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_4">
+        <bpmn2:dataInput id="_3CONTAINER_NAMEInput" name="CONTAINER_NAME"/>
+        <bpmn2:dataInput id="_3PACKAGE_NAMEInput" name="PACKAGE_NAME"/>
+        <bpmn2:inputSet id="InputSet_4">
+          <bpmn2:dataInputRefs>_3CONTAINER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_3PACKAGE_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_4"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_5">
+        <bpmn2:targetRef>_3CONTAINER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_5">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_9">appmodel</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_10">_3CONTAINER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_6">
+        <bpmn2:targetRef>_3PACKAGE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_6">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_11">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_12">_3PACKAGE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_3to_4" tns:priority="1" sourceRef="_3" targetRef="_4"/>
+    <bpmn2:task id="_4" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_3to_4</bpmn2:incoming>
+      <bpmn2:outgoing>_4to_5</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_5">
+        <bpmn2:dataInput id="_4VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_4EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_5">
+          <bpmn2:dataInputRefs>_4VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_4EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_5"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_7">
+        <bpmn2:targetRef>_4VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_7">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_13">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_14">_4VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_8">
+        <bpmn2:targetRef>_4EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_8">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_15">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_16">_4EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_4to_5" tns:priority="1" sourceRef="_4" targetRef="_5"/>
+    <bpmn2:task id="_5" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_4to_5</bpmn2:incoming>
+      <bpmn2:outgoing>_5to_6</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_6">
+        <bpmn2:dataInput id="_5TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_5VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_6">
+          <bpmn2:dataInputRefs>_5TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_5VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_6"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_9">
+        <bpmn2:targetRef>_5TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_9">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_17">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_18">_5TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_10">
+        <bpmn2:targetRef>_5VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_10">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_19">aClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_20">_5VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_5to_6" tns:priority="1" sourceRef="_5" targetRef="_6"/>
+    <bpmn2:task id="_6" tns:taskName="NewClass" name="NewClass">
+      <bpmn2:incoming>_5to_6</bpmn2:incoming>
+      <bpmn2:outgoing>_6to_7</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_7">
+        <bpmn2:dataInput id="_6PACKAGE_NAMEInput" name="PACKAGE_NAME"/>
+        <bpmn2:dataInput id="_6CLASS_NAMEInput" name="CLASS_NAME"/>
+        <bpmn2:inputSet id="InputSet_7">
+          <bpmn2:dataInputRefs>_6PACKAGE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_6CLASS_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_7"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_11">
+        <bpmn2:targetRef>_6PACKAGE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_11">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_21">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_22">_6PACKAGE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_12">
+        <bpmn2:targetRef>_6CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_12">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_23">&quot;A&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_24">_6CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_6to_7" tns:priority="1" sourceRef="_6" targetRef="_7"/>
+    <bpmn2:task id="_7" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_6to_7</bpmn2:incoming>
+      <bpmn2:outgoing>_7to_8</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_8">
+        <bpmn2:dataInput id="_7VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_7EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_8">
+          <bpmn2:dataInputRefs>_7VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_7EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_8"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_13">
+        <bpmn2:targetRef>_7VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_13">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_25">aClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_26">_7VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_14">
+        <bpmn2:targetRef>_7EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_14">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_27">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_28">_7EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_7to_8" tns:priority="1" sourceRef="_7" targetRef="_8"/>
+    <bpmn2:task id="_8" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_7to_8</bpmn2:incoming>
+      <bpmn2:outgoing>_8to_9</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_9">
+        <bpmn2:dataInput id="_8TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_8VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_9">
+          <bpmn2:dataInputRefs>_8TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_8VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_9"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_15">
+        <bpmn2:targetRef>_8TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_15">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_29">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_30">_8TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_16">
+        <bpmn2:targetRef>_8VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_16">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_31">bClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_32">_8VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_8to_9" tns:priority="1" sourceRef="_8" targetRef="_9"/>
+    <bpmn2:task id="_9" tns:taskName="NewClass" name="NewClass">
+      <bpmn2:incoming>_8to_9</bpmn2:incoming>
+      <bpmn2:outgoing>_9to_10</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_10">
+        <bpmn2:dataInput id="_9PACKAGE_NAMEInput" name="PACKAGE_NAME"/>
+        <bpmn2:dataInput id="_9CLASS_NAMEInput" name="CLASS_NAME"/>
+        <bpmn2:inputSet id="InputSet_10">
+          <bpmn2:dataInputRefs>_9PACKAGE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_9CLASS_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_10"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_17">
+        <bpmn2:targetRef>_9PACKAGE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_17">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_33">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_34">_9PACKAGE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_18">
+        <bpmn2:targetRef>_9CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_18">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_35">&quot;B&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_36">_9CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_9to_10" tns:priority="1" sourceRef="_9" targetRef="_10"/>
+    <bpmn2:task id="_10" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_9to_10</bpmn2:incoming>
+      <bpmn2:outgoing>_10to_11</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_11">
+        <bpmn2:dataInput id="_10VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_10EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_11">
+          <bpmn2:dataInputRefs>_10VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_10EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_11"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_19">
+        <bpmn2:targetRef>_10VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_19">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_37">bClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_38">_10VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_20">
+        <bpmn2:targetRef>_10EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_20">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_39">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_40">_10EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_10to_11" tns:priority="1" sourceRef="_10" targetRef="_11"/>
+    <bpmn2:task id="_11" tns:taskName="NewAttribute" name="NewAttribute">
+      <bpmn2:incoming>_10to_11</bpmn2:incoming>
+      <bpmn2:outgoing>_11to_12</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_12">
+        <bpmn2:dataInput id="_11CLASS_NAMEInput" name="CLASS_NAME"/>
+        <bpmn2:dataInput id="_11ATTRIB_NAMEInput" name="ATTRIB_NAME"/>
+        <bpmn2:dataInput id="_11TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:inputSet id="InputSet_12">
+          <bpmn2:dataInputRefs>_11CLASS_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_11ATTRIB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_11TYPE_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_12"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_21">
+        <bpmn2:targetRef>_11CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_21">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_41">bClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_42">_11CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_22">
+        <bpmn2:targetRef>_11ATTRIB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_22">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_43">&quot;a&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_44">_11ATTRIB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_23">
+        <bpmn2:targetRef>_11TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_23">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_45">aClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_46">_11TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_11to_12" tns:priority="1" sourceRef="_11" targetRef="_12"/>
+    <bpmn2:task id="_12" tns:taskName="NewMethod" name="NewMethod">
+      <bpmn2:incoming>_11to_12</bpmn2:incoming>
+      <bpmn2:outgoing>_12to_13</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_13">
+        <bpmn2:dataInput id="_12CLASS_NAMEInput" name="CLASS_NAME"/>
+        <bpmn2:dataInput id="_12METHOD_NAMEInput" name="METHOD_NAME"/>
+        <bpmn2:inputSet id="InputSet_13">
+          <bpmn2:dataInputRefs>_12CLASS_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_12METHOD_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_13"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_24">
+        <bpmn2:targetRef>_12CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_24">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_47">bClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_48">_12CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_25">
+        <bpmn2:targetRef>_12METHOD_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_25">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_49">&quot;m&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_50">_12METHOD_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_12to_13" tns:priority="1" sourceRef="_12" targetRef="_13"/>
+    <bpmn2:task id="_13" tns:taskName="NewGeneralization" name="NewGeneralization">
+      <bpmn2:incoming>_12to_13</bpmn2:incoming>
+      <bpmn2:outgoing>_13to_14</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_14">
+        <bpmn2:dataInput id="_13SUB_CLASS_NAMEInput" name="SUB_CLASS_NAME"/>
+        <bpmn2:dataInput id="_13SUPER_CLASS_NAMEInput" name="SUPER_CLASS_NAME"/>
+        <bpmn2:inputSet id="InputSet_14">
+          <bpmn2:dataInputRefs>_13SUB_CLASS_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_13SUPER_CLASS_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_14"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_26">
+        <bpmn2:targetRef>_13SUB_CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_26">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_51">aClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_52">_13SUB_CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_27">
+        <bpmn2:targetRef>_13SUPER_CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_27">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_53">bClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_54">_13SUPER_CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_13to_14" tns:priority="1" sourceRef="_13" targetRef="_14"/>
+    <bpmn2:task id="_14" tns:taskName="NewGeneralization" name="NewGeneralization">
+      <bpmn2:incoming>_13to_14</bpmn2:incoming>
+      <bpmn2:outgoing>_14to_15</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_15">
+        <bpmn2:dataInput id="_14SUB_CLASS_NAMEInput" name="SUB_CLASS_NAME"/>
+        <bpmn2:dataInput id="_14SUPER_CLASS_NAMEInput" name="SUPER_CLASS_NAME"/>
+        <bpmn2:inputSet id="InputSet_15">
+          <bpmn2:dataInputRefs>_14SUB_CLASS_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_14SUPER_CLASS_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_15"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_28">
+        <bpmn2:targetRef>_14SUB_CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_28">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_55">P12.A</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_56">_14SUB_CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_29">
+        <bpmn2:targetRef>_14SUPER_CLASS_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_29">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_57">P12.B</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_58">_14SUPER_CLASS_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_14to_15" tns:priority="1" sourceRef="_14" targetRef="_15"/>
+    <bpmn2:task id="_15" tns:taskName="ClassExtension" name="ClassExtension">
+      <bpmn2:incoming>_14to_15</bpmn2:incoming>
+      <bpmn2:outgoing>_15to_16</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_16">
+        <bpmn2:dataInput id="_15SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_15SUB_PNAMEInput" name="SUB_PNAME"/>
+        <bpmn2:dataInput id="_15SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:inputSet id="InputSet_16">
+          <bpmn2:dataInputRefs>_15SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_15SUB_PNAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_15SUB_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_16"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_30">
+        <bpmn2:targetRef>_15SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_30">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_59">coreAssets.Menu</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_60">_15SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_31">
+        <bpmn2:targetRef>_15SUB_PNAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_31">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_61">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_62">_15SUB_PNAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_32">
+        <bpmn2:targetRef>_15SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_32">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_63">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_64">_15SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_15to_16" tns:priority="1" sourceRef="_15" targetRef="_16"/>
+    <bpmn2:task id="_16" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_15to_16</bpmn2:incoming>
+      <bpmn2:outgoing>_16to_17</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_17">
+        <bpmn2:dataInput id="_16TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_16VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_17">
+          <bpmn2:dataInputRefs>_16TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_16VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_17"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_33">
+        <bpmn2:targetRef>_16TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_33">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_65">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_66">_16TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_34">
+        <bpmn2:targetRef>_16VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_34">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_67">gmClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_68">_16VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_16to_17" tns:priority="1" sourceRef="_16" targetRef="_17"/>
+    <bpmn2:task id="_17" tns:taskName="ClassExtension" name="ClassExtension">
+      <bpmn2:incoming>_16to_17</bpmn2:incoming>
+      <bpmn2:outgoing>_17to_18</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_18">
+        <bpmn2:dataInput id="_17SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_17SUB_PNAMEInput" name="SUB_PNAME"/>
+        <bpmn2:dataInput id="_17SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:inputSet id="InputSet_18">
+          <bpmn2:dataInputRefs>_17SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_17SUB_PNAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_17SUB_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_18"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_35">
+        <bpmn2:targetRef>_17SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_35">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_69">coreAssets.GameMenu</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_70">_17SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_36">
+        <bpmn2:targetRef>_17SUB_PNAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_36">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_71">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_72">_17SUB_PNAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_37">
+        <bpmn2:targetRef>_17SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_37">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_73">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_74">_17SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_17to_18" tns:priority="1" sourceRef="_17" targetRef="_18"/>
+    <bpmn2:task id="_18" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_17to_18</bpmn2:incoming>
+      <bpmn2:outgoing>_18to_19</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_19">
+        <bpmn2:dataInput id="_18VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_18EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_19">
+          <bpmn2:dataInputRefs>_18VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_18EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_19"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_38">
+        <bpmn2:targetRef>_18VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_38">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_75">gmClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_76">_18VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_39">
+        <bpmn2:targetRef>_18EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_39">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_77">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_78">_18EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_18to_19" tns:priority="1" sourceRef="_18" targetRef="_19"/>
+    <bpmn2:task id="_19" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_18to_19</bpmn2:incoming>
+      <bpmn2:outgoing>_19to_20</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_20">
+        <bpmn2:dataInput id="_19TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_19VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_20">
+          <bpmn2:dataInputRefs>_19TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_19VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_20"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_40">
+        <bpmn2:targetRef>_19TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_40">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_79">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_80">_19TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_41">
+        <bpmn2:targetRef>_19VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_41">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_81">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_82">_19VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_19to_20" tns:priority="1" sourceRef="_19" targetRef="_20"/>
+    <bpmn2:task id="_20" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_19to_20</bpmn2:incoming>
+      <bpmn2:outgoing>_20to_21</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_21">
+        <bpmn2:dataInput id="_20SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_20SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_20MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_21">
+          <bpmn2:dataInputRefs>_20SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_20SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_20MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_21"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_42">
+        <bpmn2:targetRef>_20SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_42">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_83">coreAssets.GameMenu</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_84">_20SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_43">
+        <bpmn2:targetRef>_20SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_43">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_85">gmClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_86">_20SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_44">
+        <bpmn2:targetRef>_20MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_44">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_87">saveGame</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_88">_20MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_20to_21" tns:priority="1" sourceRef="_20" targetRef="_21"/>
+    <bpmn2:task id="_21" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_20to_21</bpmn2:incoming>
+      <bpmn2:outgoing>_21to_22</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_22">
+        <bpmn2:dataInput id="_21VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_21EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_22">
+          <bpmn2:dataInputRefs>_21VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_21EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_22"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_45">
+        <bpmn2:targetRef>_21VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_45">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_89">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_90">_21VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_46">
+        <bpmn2:targetRef>_21EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_46">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_91">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_92">_21EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_21to_22" tns:priority="1" sourceRef="_21" targetRef="_22"/>
+    <bpmn2:task id="_22" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_21to_22</bpmn2:incoming>
+      <bpmn2:outgoing>_22to_23</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_23">
+        <bpmn2:dataInput id="_22TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_22VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_23">
+          <bpmn2:dataInputRefs>_22TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_22VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_23"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_47">
+        <bpmn2:targetRef>_22TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_47">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_93">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_94">_22TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_48">
+        <bpmn2:targetRef>_22VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_48">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_95">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_96">_22VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_22to_23" tns:priority="1" sourceRef="_22" targetRef="_23"/>
+    <bpmn2:task id="_23" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_22to_23</bpmn2:incoming>
+      <bpmn2:outgoing>_23to_24</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_24">
+        <bpmn2:dataInput id="_23SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_23SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_23MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_24">
+          <bpmn2:dataInputRefs>_23SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_23SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_23MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_24"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_49">
+        <bpmn2:targetRef>_23SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_49">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_97">coreAssets.GameMenu</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_98">_23SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_50">
+        <bpmn2:targetRef>_23SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_50">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_99">gmClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_100">_23SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_51">
+        <bpmn2:targetRef>_23MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_51">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_101">loadGame</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_102">_23MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_23to_24" tns:priority="1" sourceRef="_23" targetRef="_24"/>
+    <bpmn2:task id="_24" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_23to_24</bpmn2:incoming>
+      <bpmn2:outgoing>_24to_25</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_25">
+        <bpmn2:dataInput id="_24VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_24EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_25">
+          <bpmn2:dataInputRefs>_24VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_24EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_25"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_52">
+        <bpmn2:targetRef>_24VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_52">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_103">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_104">_24VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_53">
+        <bpmn2:targetRef>_24EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_53">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_105">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_106">_24EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_24to_25" tns:priority="1" sourceRef="_24" targetRef="_25"/>
+    <bpmn2:task id="_25" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_24to_25</bpmn2:incoming>
+      <bpmn2:outgoing>_25to_26</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_26">
+        <bpmn2:dataInput id="_25TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_25VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_26">
+          <bpmn2:dataInputRefs>_25TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_25VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_26"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_54">
+        <bpmn2:targetRef>_25TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_54">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_107">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_108">_25TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_55">
+        <bpmn2:targetRef>_25VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_55">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_109">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_110">_25VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_25to_26" tns:priority="1" sourceRef="_25" targetRef="_26"/>
+    <bpmn2:task id="_26" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_25to_26</bpmn2:incoming>
+      <bpmn2:outgoing>_26to_27</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_27">
+        <bpmn2:dataInput id="_26SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_26SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_26MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_27">
+          <bpmn2:dataInputRefs>_26SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_26SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_26MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_27"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_56">
+        <bpmn2:targetRef>_26SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_56">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_111">coreAssets.GameMenu</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_112">_26SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_57">
+        <bpmn2:targetRef>_26SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_57">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_113">gmClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_114">_26SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_58">
+        <bpmn2:targetRef>_26MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_58">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_115">saveScore</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_116">_26MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_26to_27" tns:priority="1" sourceRef="_26" targetRef="_27"/>
+    <bpmn2:task id="_27" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_26to_27</bpmn2:incoming>
+      <bpmn2:outgoing>_27to_28</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_28">
+        <bpmn2:dataInput id="_27VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_27EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_28">
+          <bpmn2:dataInputRefs>_27VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_27EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_28"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_59">
+        <bpmn2:targetRef>_27VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_59">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_117">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_118">_27VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_60">
+        <bpmn2:targetRef>_27EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_60">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_119">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_120">_27EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_27to_28" tns:priority="1" sourceRef="_27" targetRef="_28"/>
+    <bpmn2:task id="_28" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_27to_28</bpmn2:incoming>
+      <bpmn2:outgoing>_28to_29</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_29">
+        <bpmn2:dataInput id="_28TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_28VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_29">
+          <bpmn2:dataInputRefs>_28TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_28VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_29"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_61">
+        <bpmn2:targetRef>_28TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_61">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_121">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_122">_28TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_62">
+        <bpmn2:targetRef>_28VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_62">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_123">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_124">_28VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_28to_29" tns:priority="1" sourceRef="_28" targetRef="_29"/>
+    <bpmn2:task id="_29" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_28to_29</bpmn2:incoming>
+      <bpmn2:outgoing>_29to_30</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_30">
+        <bpmn2:dataInput id="_29SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_29SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_29MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_30">
+          <bpmn2:dataInputRefs>_29SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_29SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_29MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_30"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_63">
+        <bpmn2:targetRef>_29SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_63">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_125">coreAssets.GameMenu</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_126">_29SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_64">
+        <bpmn2:targetRef>_29SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_64">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_127">gmClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_128">_29SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_65">
+        <bpmn2:targetRef>_29MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_65">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_129">viewTopScores</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_130">_29MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_29to_30" tns:priority="1" sourceRef="_29" targetRef="_30"/>
+    <bpmn2:task id="_30" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_29to_30</bpmn2:incoming>
+      <bpmn2:outgoing>_30to_31</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_31">
+        <bpmn2:dataInput id="_30VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_30EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_31">
+          <bpmn2:dataInputRefs>_30VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_30EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_31"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_66">
+        <bpmn2:targetRef>_30VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_66">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_131">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_132">_30VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_67">
+        <bpmn2:targetRef>_30EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_67">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_133">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_134">_30EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_30to_31" tns:priority="1" sourceRef="_30" targetRef="_31"/>
+    <bpmn2:task id="_31" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_30to_31</bpmn2:incoming>
+      <bpmn2:outgoing>_31to_32</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_32">
+        <bpmn2:dataInput id="_31TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_31VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_32">
+          <bpmn2:dataInputRefs>_31TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_31VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_32"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_68">
+        <bpmn2:targetRef>_31TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_68">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_135">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_136">_31TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_69">
+        <bpmn2:targetRef>_31VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_69">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_137">boardClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_138">_31VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_31to_32" tns:priority="1" sourceRef="_31" targetRef="_32"/>
+    <bpmn2:task id="_32" tns:taskName="ClassExtension" name="ClassExtension">
+      <bpmn2:incoming>_31to_32</bpmn2:incoming>
+      <bpmn2:outgoing>_32to_33</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_33">
+        <bpmn2:dataInput id="_32SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_32SUB_PNAMEInput" name="SUB_PNAME"/>
+        <bpmn2:dataInput id="_32SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:inputSet id="InputSet_33">
+          <bpmn2:dataInputRefs>_32SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_32SUB_PNAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_32SUB_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_33"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_70">
+        <bpmn2:targetRef>_32SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_70">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_139">coreAssets.Board</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_140">_32SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_71">
+        <bpmn2:targetRef>_32SUB_PNAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_71">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_141">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_142">_32SUB_PNAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_72">
+        <bpmn2:targetRef>_32SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_72">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_143">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_144">_32SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_32to_33" tns:priority="1" sourceRef="_32" targetRef="_33"/>
+    <bpmn2:task id="_33" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_32to_33</bpmn2:incoming>
+      <bpmn2:outgoing>_33to_34</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_34">
+        <bpmn2:dataInput id="_33VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_33EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_34">
+          <bpmn2:dataInputRefs>_33VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_33EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_34"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_73">
+        <bpmn2:targetRef>_33VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_73">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_145">boardClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_146">_33VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_74">
+        <bpmn2:targetRef>_33EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_74">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_147">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_148">_33EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_33to_34" tns:priority="1" sourceRef="_33" targetRef="_34"/>
+    <bpmn2:task id="_34" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_33to_34</bpmn2:incoming>
+      <bpmn2:outgoing>_34to_35</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_35">
+        <bpmn2:dataInput id="_34TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_34VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_35">
+          <bpmn2:dataInputRefs>_34TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_34VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_35"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_75">
+        <bpmn2:targetRef>_34TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_75">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_149">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_150">_34TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_76">
+        <bpmn2:targetRef>_34VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_76">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_151">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_152">_34VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_34to_35" tns:priority="1" sourceRef="_34" targetRef="_35"/>
+    <bpmn2:task id="_35" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_34to_35</bpmn2:incoming>
+      <bpmn2:outgoing>_35to_36</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_36">
+        <bpmn2:dataInput id="_35SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_35SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_35MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_36">
+          <bpmn2:dataInputRefs>_35SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_35SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_35MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_36"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_77">
+        <bpmn2:targetRef>_35SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_77">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_153">coreAssets.Board</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_154">_35SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_78">
+        <bpmn2:targetRef>_35SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_78">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_155">boardClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_156">_35SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_79">
+        <bpmn2:targetRef>_35MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_79">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_157">buildGameBoard</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_158">_35MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_35to_36" tns:priority="1" sourceRef="_35" targetRef="_36"/>
+    <bpmn2:task id="_36" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_35to_36</bpmn2:incoming>
+      <bpmn2:outgoing>_36to_37</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_37">
+        <bpmn2:dataInput id="_36VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_36EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_37">
+          <bpmn2:dataInputRefs>_36VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_36EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_37"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_80">
+        <bpmn2:targetRef>_36VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_80">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_159">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_160">_36VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_81">
+        <bpmn2:targetRef>_36EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_81">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_161">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_162">_36EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_36to_37" tns:priority="1" sourceRef="_36" targetRef="_37"/>
+    <bpmn2:task id="_37" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_36to_37</bpmn2:incoming>
+      <bpmn2:outgoing>_37to_38</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_38">
+        <bpmn2:dataInput id="_37TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_37VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_38">
+          <bpmn2:dataInputRefs>_37TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_37VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_38"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_82">
+        <bpmn2:targetRef>_37TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_82">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_163">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_164">_37TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_83">
+        <bpmn2:targetRef>_37VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_83">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_165">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_166">_37VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_37to_38" tns:priority="1" sourceRef="_37" targetRef="_38"/>
+    <bpmn2:task id="_38" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_37to_38</bpmn2:incoming>
+      <bpmn2:outgoing>_38to_39</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_39">
+        <bpmn2:dataInput id="_38SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_38SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_38MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_39">
+          <bpmn2:dataInputRefs>_38SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_38SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_38MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_39"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_84">
+        <bpmn2:targetRef>_38SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_84">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_167">coreAssets.Board</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_168">_38SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_85">
+        <bpmn2:targetRef>_38SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_85">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_169">boardClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_170">_38SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_86">
+        <bpmn2:targetRef>_38MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_86">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_171">handleTick</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_172">_38MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_38to_39" tns:priority="1" sourceRef="_38" targetRef="_39"/>
+    <bpmn2:task id="_39" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_38to_39</bpmn2:incoming>
+      <bpmn2:outgoing>_39to_40</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_40">
+        <bpmn2:dataInput id="_39VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_39EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_40">
+          <bpmn2:dataInputRefs>_39VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_39EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_40"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_87">
+        <bpmn2:targetRef>_39VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_87">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_173">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_174">_39VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_88">
+        <bpmn2:targetRef>_39EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_88">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_175">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_176">_39EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_39to_40" tns:priority="1" sourceRef="_39" targetRef="_40"/>
+    <bpmn2:exclusiveGateway id="_40" name="Gateway" gatewayDirection="Converging">
+      <bpmn2:incoming>_43to_40</bpmn2:incoming>
+      <bpmn2:incoming>_39to_40</bpmn2:incoming>
+      <bpmn2:outgoing>_40to_41</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_40to_41" tns:priority="1" sourceRef="_40" targetRef="_41"/>
+    <bpmn2:task id="_41" tns:taskName="EvalConditionBPMN" name="EvalConditionBPMN">
+      <bpmn2:incoming>_40to_41</bpmn2:incoming>
+      <bpmn2:outgoing>_41to_42</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_41">
+        <bpmn2:dataInput id="_41CURRENT_ADDRESSInput" name="CURRENT_ADDRESS"/>
+        <bpmn2:dataInput id="_41CONDITIONInput" name="CONDITION"/>
+        <bpmn2:inputSet id="InputSet_41">
+          <bpmn2:dataInputRefs>_41CURRENT_ADDRESSInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_41CONDITIONInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_41"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_89">
+        <bpmn2:targetRef>_41CURRENT_ADDRESSInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_89">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_177">41</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_178">_41CURRENT_ADDRESSInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_90">
+        <bpmn2:targetRef>_41CONDITIONInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_90">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_179">&quot;Create another Wall?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_180">_41CONDITIONInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_41to_42" tns:priority="1" sourceRef="_41" targetRef="_42"/>
+    <bpmn2:exclusiveGateway id="_42" name="Gateway" gatewayDirection="Diverging">
+      <bpmn2:incoming>_41to_42</bpmn2:incoming>
+      <bpmn2:outgoing>_42to_43</bpmn2:outgoing>
+      <bpmn2:outgoing>_42to_44</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_42to_43" tns:priority="1" sourceRef="_42" targetRef="_43">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_181" language="http://www.java.com/java">return condStatus41;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_42to_44" tns:priority="1" sourceRef="_42" targetRef="_44">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_182" language="http://www.java.com/java">return !condStatus41;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="_43" tns:taskName="ClassExtension" name="ClassExtension">
+      <bpmn2:incoming>_42to_43</bpmn2:incoming>
+      <bpmn2:outgoing>_43to_40</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_42">
+        <bpmn2:dataInput id="_43SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_43SUB_PNAMEInput" name="SUB_PNAME"/>
+        <bpmn2:dataInput id="_43SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:inputSet id="InputSet_42">
+          <bpmn2:dataInputRefs>_43SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_43SUB_PNAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_43SUB_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_42"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_91">
+        <bpmn2:targetRef>_43SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_91">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_183">coreAssets.Wall</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_184">_43SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_92">
+        <bpmn2:targetRef>_43SUB_PNAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_92">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_185">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_186">_43SUB_PNAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_93">
+        <bpmn2:targetRef>_43SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_93">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_187">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_188">_43SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_43to_40" tns:priority="1" sourceRef="_43" targetRef="_40"/>
+    <bpmn2:exclusiveGateway id="_44" name="Gateway" gatewayDirection="Converging">
+      <bpmn2:incoming>_55to_44</bpmn2:incoming>
+      <bpmn2:incoming>_42to_44</bpmn2:incoming>
+      <bpmn2:outgoing>_44to_45</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_44to_45" tns:priority="1" sourceRef="_44" targetRef="_45"/>
+    <bpmn2:task id="_45" tns:taskName="EvalConditionBPMN" name="EvalConditionBPMN">
+      <bpmn2:incoming>_44to_45</bpmn2:incoming>
+      <bpmn2:outgoing>_45to_46</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_43">
+        <bpmn2:dataInput id="_45CURRENT_ADDRESSInput" name="CURRENT_ADDRESS"/>
+        <bpmn2:dataInput id="_45CONDITIONInput" name="CONDITION"/>
+        <bpmn2:inputSet id="InputSet_43">
+          <bpmn2:dataInputRefs>_45CURRENT_ADDRESSInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_45CONDITIONInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_43"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_94">
+        <bpmn2:targetRef>_45CURRENT_ADDRESSInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_94">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_189">45</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_190">_45CURRENT_ADDRESSInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_95">
+        <bpmn2:targetRef>_45CONDITIONInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_95">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_191">&quot;Create another Movable Sprite?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_192">_45CONDITIONInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_45to_46" tns:priority="1" sourceRef="_45" targetRef="_46"/>
+    <bpmn2:exclusiveGateway id="_46" name="Gateway" gatewayDirection="Diverging">
+      <bpmn2:incoming>_45to_46</bpmn2:incoming>
+      <bpmn2:outgoing>_46to_47</bpmn2:outgoing>
+      <bpmn2:outgoing>_46to_56</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_46to_47" tns:priority="1" sourceRef="_46" targetRef="_47">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_193" language="http://www.java.com/java">return condStatus45;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_46to_56" tns:priority="1" sourceRef="_46" targetRef="_56">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_194" language="http://www.java.com/java">return !condStatus45;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="_47" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_46to_47</bpmn2:incoming>
+      <bpmn2:outgoing>_47to_48</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_44">
+        <bpmn2:dataInput id="_47TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_47VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_44">
+          <bpmn2:dataInputRefs>_47TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_47VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_44"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_96">
+        <bpmn2:targetRef>_47TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_96">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_195">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_196">_47TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_97">
+        <bpmn2:targetRef>_47VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_97">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_197">mspriteClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_198">_47VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_47to_48" tns:priority="1" sourceRef="_47" targetRef="_48"/>
+    <bpmn2:task id="_48" tns:taskName="ClassExtension" name="ClassExtension">
+      <bpmn2:incoming>_47to_48</bpmn2:incoming>
+      <bpmn2:outgoing>_48to_49</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_45">
+        <bpmn2:dataInput id="_48SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_48SUB_PNAMEInput" name="SUB_PNAME"/>
+        <bpmn2:dataInput id="_48SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:inputSet id="InputSet_45">
+          <bpmn2:dataInputRefs>_48SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_48SUB_PNAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_48SUB_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_45"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_98">
+        <bpmn2:targetRef>_48SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_98">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_199">coreAssets.MovableSprite</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_200">_48SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_99">
+        <bpmn2:targetRef>_48SUB_PNAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_99">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_201">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_202">_48SUB_PNAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_100">
+        <bpmn2:targetRef>_48SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_100">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_203">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_204">_48SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_48to_49" tns:priority="1" sourceRef="_48" targetRef="_49"/>
+    <bpmn2:task id="_49" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_48to_49</bpmn2:incoming>
+      <bpmn2:outgoing>_49to_50</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_46">
+        <bpmn2:dataInput id="_49VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_49EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_46">
+          <bpmn2:dataInputRefs>_49VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_49EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_46"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_101">
+        <bpmn2:targetRef>_49VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_101">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_205">mspriteClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_206">_49VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_102">
+        <bpmn2:targetRef>_49EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_102">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_207">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_208">_49EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_49to_50" tns:priority="1" sourceRef="_49" targetRef="_50"/>
+    <bpmn2:task id="_50" tns:taskName="EvalConditionBPMN" name="EvalConditionBPMN">
+      <bpmn2:incoming>_49to_50</bpmn2:incoming>
+      <bpmn2:outgoing>_50to_51</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_47">
+        <bpmn2:dataInput id="_50CURRENT_ADDRESSInput" name="CURRENT_ADDRESS"/>
+        <bpmn2:dataInput id="_50CONDITIONInput" name="CONDITION"/>
+        <bpmn2:inputSet id="InputSet_47">
+          <bpmn2:dataInputRefs>_50CURRENT_ADDRESSInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_50CONDITIONInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_47"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_103">
+        <bpmn2:targetRef>_50CURRENT_ADDRESSInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_103">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_209">50</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_210">_50CURRENT_ADDRESSInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_104">
+        <bpmn2:targetRef>_50CONDITIONInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_104">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_211">&quot;Does the sprite have a different rendering?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_212">_50CONDITIONInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_50to_51" tns:priority="1" sourceRef="_50" targetRef="_51"/>
+    <bpmn2:exclusiveGateway id="_51" name="Gateway" gatewayDirection="Diverging">
+      <bpmn2:incoming>_50to_51</bpmn2:incoming>
+      <bpmn2:outgoing>_51to_52</bpmn2:outgoing>
+      <bpmn2:outgoing>_51to_55</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_51to_52" tns:priority="1" sourceRef="_51" targetRef="_52">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_213" language="http://www.java.com/java">return condStatus50;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_51to_55" tns:priority="1" sourceRef="_51" targetRef="_55">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_214" language="http://www.java.com/java">return !condStatus50;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="_52" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_51to_52</bpmn2:incoming>
+      <bpmn2:outgoing>_52to_53</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_48">
+        <bpmn2:dataInput id="_52TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_52VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_48">
+          <bpmn2:dataInputRefs>_52TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_52VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_48"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_105">
+        <bpmn2:targetRef>_52TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_105">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_215">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_216">_52TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_106">
+        <bpmn2:targetRef>_52VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_106">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_217">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_218">_52VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_52to_53" tns:priority="1" sourceRef="_52" targetRef="_53"/>
+    <bpmn2:task id="_53" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_52to_53</bpmn2:incoming>
+      <bpmn2:outgoing>_53to_54</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_49">
+        <bpmn2:dataInput id="_53SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_53SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_53MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_49">
+          <bpmn2:dataInputRefs>_53SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_53SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_53MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_49"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_107">
+        <bpmn2:targetRef>_53SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_107">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_219">coreAssets.MovableSprite</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_220">_53SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_108">
+        <bpmn2:targetRef>_53SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_108">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_221">mspriteClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_222">_53SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_109">
+        <bpmn2:targetRef>_53MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_109">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_223">paint</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_224">_53MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_53to_54" tns:priority="1" sourceRef="_53" targetRef="_54"/>
+    <bpmn2:task id="_54" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_53to_54</bpmn2:incoming>
+      <bpmn2:outgoing>_54to_55</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_50">
+        <bpmn2:dataInput id="_54VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_54EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_50">
+          <bpmn2:dataInputRefs>_54VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_54EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_50"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_110">
+        <bpmn2:targetRef>_54VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_110">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_225">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_226">_54VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_111">
+        <bpmn2:targetRef>_54EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_111">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_227">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_228">_54EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_54to_55" tns:priority="1" sourceRef="_54" targetRef="_55"/>
+    <bpmn2:exclusiveGateway id="_55" name="Gateway" gatewayDirection="Converging">
+      <bpmn2:incoming>_51to_55</bpmn2:incoming>
+      <bpmn2:incoming>_54to_55</bpmn2:incoming>
+      <bpmn2:outgoing>_55to_44</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_55to_44" tns:priority="1" sourceRef="_55" targetRef="_44"/>
+    <bpmn2:exclusiveGateway id="_56" name="Gateway" gatewayDirection="Converging">
+      <bpmn2:incoming>_67to_56</bpmn2:incoming>
+      <bpmn2:incoming>_46to_56</bpmn2:incoming>
+      <bpmn2:outgoing>_56to_57</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_56to_57" tns:priority="1" sourceRef="_56" targetRef="_57"/>
+    <bpmn2:task id="_57" tns:taskName="EvalConditionBPMN" name="EvalConditionBPMN">
+      <bpmn2:incoming>_56to_57</bpmn2:incoming>
+      <bpmn2:outgoing>_57to_58</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_51">
+        <bpmn2:dataInput id="_57CURRENT_ADDRESSInput" name="CURRENT_ADDRESS"/>
+        <bpmn2:dataInput id="_57CONDITIONInput" name="CONDITION"/>
+        <bpmn2:inputSet id="InputSet_51">
+          <bpmn2:dataInputRefs>_57CURRENT_ADDRESSInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_57CONDITIONInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_51"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_112">
+        <bpmn2:targetRef>_57CURRENT_ADDRESSInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_112">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_229">57</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_230">_57CURRENT_ADDRESSInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_113">
+        <bpmn2:targetRef>_57CONDITIONInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_113">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_231">&quot;Create another Stationary Sprite?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_232">_57CONDITIONInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_57to_58" tns:priority="1" sourceRef="_57" targetRef="_58"/>
+    <bpmn2:exclusiveGateway id="_58" name="Gateway" gatewayDirection="Diverging">
+      <bpmn2:incoming>_57to_58</bpmn2:incoming>
+      <bpmn2:outgoing>_58to_59</bpmn2:outgoing>
+      <bpmn2:outgoing>_58to_68</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_58to_59" tns:priority="1" sourceRef="_58" targetRef="_59">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_233" language="http://www.java.com/java">return condStatus57;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_58to_68" tns:priority="1" sourceRef="_58" targetRef="_68">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_234" language="http://www.java.com/java">return !condStatus57;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="_59" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_58to_59</bpmn2:incoming>
+      <bpmn2:outgoing>_59to_60</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_52">
+        <bpmn2:dataInput id="_59TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_59VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_52">
+          <bpmn2:dataInputRefs>_59TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_59VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_52"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_114">
+        <bpmn2:targetRef>_59TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_114">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_235">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_236">_59TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_115">
+        <bpmn2:targetRef>_59VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_115">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_237">sspriteClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_238">_59VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_59to_60" tns:priority="1" sourceRef="_59" targetRef="_60"/>
+    <bpmn2:task id="_60" tns:taskName="ClassExtension" name="ClassExtension">
+      <bpmn2:incoming>_59to_60</bpmn2:incoming>
+      <bpmn2:outgoing>_60to_61</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_53">
+        <bpmn2:dataInput id="_60SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_60SUB_PNAMEInput" name="SUB_PNAME"/>
+        <bpmn2:dataInput id="_60SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:inputSet id="InputSet_53">
+          <bpmn2:dataInputRefs>_60SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_60SUB_PNAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_60SUB_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_53"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_116">
+        <bpmn2:targetRef>_60SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_116">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_239">coreAssets.StationarySprite</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_240">_60SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_117">
+        <bpmn2:targetRef>_60SUB_PNAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_117">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_241">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_242">_60SUB_PNAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_118">
+        <bpmn2:targetRef>_60SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_118">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_243">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_244">_60SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_60to_61" tns:priority="1" sourceRef="_60" targetRef="_61"/>
+    <bpmn2:task id="_61" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_60to_61</bpmn2:incoming>
+      <bpmn2:outgoing>_61to_62</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_54">
+        <bpmn2:dataInput id="_61VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_61EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_54">
+          <bpmn2:dataInputRefs>_61VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_61EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_54"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_119">
+        <bpmn2:targetRef>_61VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_119">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_245">sspriteClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_246">_61VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_120">
+        <bpmn2:targetRef>_61EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_120">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_247">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_248">_61EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_61to_62" tns:priority="1" sourceRef="_61" targetRef="_62"/>
+    <bpmn2:task id="_62" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_61to_62</bpmn2:incoming>
+      <bpmn2:outgoing>_62to_63</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_55">
+        <bpmn2:dataInput id="_62TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_62VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_55">
+          <bpmn2:dataInputRefs>_62TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_62VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_55"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_121">
+        <bpmn2:targetRef>_62TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_121">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_249">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_250">_62TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_122">
+        <bpmn2:targetRef>_62VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_122">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_251">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_252">_62VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_62to_63" tns:priority="1" sourceRef="_62" targetRef="_63"/>
+    <bpmn2:task id="_63" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_62to_63</bpmn2:incoming>
+      <bpmn2:outgoing>_63to_64</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_56">
+        <bpmn2:dataInput id="_63SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_63SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_63MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_56">
+          <bpmn2:dataInputRefs>_63SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_63SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_63MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_56"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_123">
+        <bpmn2:targetRef>_63SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_123">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_253">coreAssets.StationarySprite</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_254">_63SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_124">
+        <bpmn2:targetRef>_63SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_124">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_255">sspriteClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_256">_63SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_125">
+        <bpmn2:targetRef>_63MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_125">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_257">paint</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_258">_63MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_63to_64" tns:priority="1" sourceRef="_63" targetRef="_64"/>
+    <bpmn2:task id="_64" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_63to_64</bpmn2:incoming>
+      <bpmn2:outgoing>_64to_65</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_57">
+        <bpmn2:dataInput id="_64VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_64EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_57">
+          <bpmn2:dataInputRefs>_64VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_64EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_57"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_126">
+        <bpmn2:targetRef>_64VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_126">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_259">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_260">_64VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_127">
+        <bpmn2:targetRef>_64EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_127">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_261">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_262">_64EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_64to_65" tns:priority="1" sourceRef="_64" targetRef="_65"/>
+    <bpmn2:task id="_65" tns:taskName="Declaration" name="Declaration">
+      <bpmn2:incoming>_64to_65</bpmn2:incoming>
+      <bpmn2:outgoing>_65to_66</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_58">
+        <bpmn2:dataInput id="_65TYPE_NAMEInput" name="TYPE_NAME"/>
+        <bpmn2:dataInput id="_65VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:inputSet id="InputSet_58">
+          <bpmn2:dataInputRefs>_65TYPE_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_65VAR_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_58"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_128">
+        <bpmn2:targetRef>_65TYPE_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_128">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_263">VOID</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_264">_65TYPE_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_129">
+        <bpmn2:targetRef>_65VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_129">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_265">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_266">_65VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_65to_66" tns:priority="1" sourceRef="_65" targetRef="_66"/>
+    <bpmn2:task id="_66" tns:taskName="MethodExtension" name="MethodExtension">
+      <bpmn2:incoming>_65to_66</bpmn2:incoming>
+      <bpmn2:outgoing>_66to_67</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_59">
+        <bpmn2:dataInput id="_66SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_66SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:dataInput id="_66MethodNameInput" name="MethodName"/>
+        <bpmn2:inputSet id="InputSet_59">
+          <bpmn2:dataInputRefs>_66SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_66SUB_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_66MethodNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_59"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_130">
+        <bpmn2:targetRef>_66SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_130">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_267">coreAssets.StationarySprite</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_268">_66SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_131">
+        <bpmn2:targetRef>_66SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_131">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_269">sspriteClass</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_270">_66SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_132">
+        <bpmn2:targetRef>_66MethodNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_132">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_271">colideWith</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_272">_66MethodNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_66to_67" tns:priority="1" sourceRef="_66" targetRef="_67"/>
+    <bpmn2:task id="_67" tns:taskName="Assignment" name="Assignment">
+      <bpmn2:incoming>_66to_67</bpmn2:incoming>
+      <bpmn2:outgoing>_67to_56</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_60">
+        <bpmn2:dataInput id="_67VAR_NAMEInput" name="VAR_NAME"/>
+        <bpmn2:dataInput id="_67EXPRInput" name="EXPR"/>
+        <bpmn2:inputSet id="InputSet_60">
+          <bpmn2:dataInputRefs>_67VAR_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_67EXPRInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_60"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_133">
+        <bpmn2:targetRef>_67VAR_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_133">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_273">m</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_274">_67VAR_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_134">
+        <bpmn2:targetRef>_67EXPRInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_134">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_275">$0000RDLTempVar</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_276">_67EXPRInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_67to_56" tns:priority="1" sourceRef="_67" targetRef="_56"/>
+    <bpmn2:exclusiveGateway id="_68" name="Gateway" gatewayDirection="Converging">
+      <bpmn2:incoming>_71to_68</bpmn2:incoming>
+      <bpmn2:incoming>_58to_68</bpmn2:incoming>
+      <bpmn2:outgoing>_68to_69</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_68to_69" tns:priority="1" sourceRef="_68" targetRef="_69"/>
+    <bpmn2:task id="_69" tns:taskName="EvalConditionBPMN" name="EvalConditionBPMN">
+      <bpmn2:incoming>_68to_69</bpmn2:incoming>
+      <bpmn2:outgoing>_69to_70</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_61">
+        <bpmn2:dataInput id="_69CURRENT_ADDRESSInput" name="CURRENT_ADDRESS"/>
+        <bpmn2:dataInput id="_69CONDITIONInput" name="CONDITION"/>
+        <bpmn2:inputSet id="InputSet_61">
+          <bpmn2:dataInputRefs>_69CURRENT_ADDRESSInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_69CONDITIONInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_61"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_135">
+        <bpmn2:targetRef>_69CURRENT_ADDRESSInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_135">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_277">69</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_278">_69CURRENT_ADDRESSInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_136">
+        <bpmn2:targetRef>_69CONDITIONInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_136">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_279">&quot;Create another Exception?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_280">_69CONDITIONInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_69to_70" tns:priority="1" sourceRef="_69" targetRef="_70"/>
+    <bpmn2:exclusiveGateway id="_70" name="Gateway" gatewayDirection="Diverging">
+      <bpmn2:incoming>_69to_70</bpmn2:incoming>
+      <bpmn2:outgoing>_70to_71</bpmn2:outgoing>
+      <bpmn2:outgoing>_70to_72</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_70to_71" tns:priority="1" sourceRef="_70" targetRef="_71">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_281" language="http://www.java.com/java">return condStatus69;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_70to_72" tns:priority="1" sourceRef="_70" targetRef="_72">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_282" language="http://www.java.com/java">return !condStatus69;</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="_71" tns:taskName="ClassExtension" name="ClassExtension">
+      <bpmn2:incoming>_70to_71</bpmn2:incoming>
+      <bpmn2:outgoing>_71to_68</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_62">
+        <bpmn2:dataInput id="_71SUPER_NAMEInput" name="SUPER_NAME"/>
+        <bpmn2:dataInput id="_71SUB_PNAMEInput" name="SUB_PNAME"/>
+        <bpmn2:dataInput id="_71SUB_NAMEInput" name="SUB_NAME"/>
+        <bpmn2:inputSet id="InputSet_62">
+          <bpmn2:dataInputRefs>_71SUPER_NAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_71SUB_PNAMEInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_71SUB_NAMEInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_62"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_137">
+        <bpmn2:targetRef>_71SUPER_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_137">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_283">java.lang.Exception</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_284">_71SUPER_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_138">
+        <bpmn2:targetRef>_71SUB_PNAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_138">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_285">gamePack</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_286">_71SUB_PNAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_139">
+        <bpmn2:targetRef>_71SUB_NAMEInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_139">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_287">&quot;?&quot;</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_288">_71SUB_NAMEInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_71to_68" tns:priority="1" sourceRef="_71" targetRef="_68"/>
+    <bpmn2:endEvent id="_72" name="EndProcess">
+      <bpmn2:incoming>_70to_72</bpmn2:incoming>
+      <bpmn2:terminateEventDefinition id="TerminateEventDefinition_1"/>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="org.reusefusion.reuse">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_100000">
+        <dc:Bounds height="36.0" width="36.0" x="50.0" y="57.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_1" bpmnElement="_0">
+        <dc:Bounds height="50.0" width="110.0" x="136.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_2" bpmnElement="_1">
+        <dc:Bounds height="50.0" width="110.0" x="296.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_3" bpmnElement="_2">
+        <dc:Bounds height="50.0" width="110.0" x="456.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_4" bpmnElement="_3">
+        <dc:Bounds height="50.0" width="110.0" x="616.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_5" bpmnElement="_4">
+        <dc:Bounds height="50.0" width="110.0" x="776.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_6" bpmnElement="_5">
+        <dc:Bounds height="50.0" width="110.0" x="936.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_7" bpmnElement="_6">
+        <dc:Bounds height="50.0" width="110.0" x="1096.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_8" bpmnElement="_7">
+        <dc:Bounds height="50.0" width="110.0" x="1256.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_9" bpmnElement="_8">
+        <dc:Bounds height="50.0" width="110.0" x="1416.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_10" bpmnElement="_9">
+        <dc:Bounds height="50.0" width="110.0" x="1576.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_11" bpmnElement="_10">
+        <dc:Bounds height="50.0" width="110.0" x="1736.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_12" bpmnElement="_11">
+        <dc:Bounds height="50.0" width="110.0" x="1896.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_13" bpmnElement="_12">
+        <dc:Bounds height="50.0" width="110.0" x="2056.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_14" bpmnElement="_13">
+        <dc:Bounds height="50.0" width="110.0" x="2216.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_15" bpmnElement="_14">
+        <dc:Bounds height="50.0" width="110.0" x="2376.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_16" bpmnElement="_15">
+        <dc:Bounds height="50.0" width="110.0" x="2536.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_17" bpmnElement="_16">
+        <dc:Bounds height="50.0" width="110.0" x="2696.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_18" bpmnElement="_17">
+        <dc:Bounds height="50.0" width="110.0" x="2856.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_19" bpmnElement="_18">
+        <dc:Bounds height="50.0" width="110.0" x="3016.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_20" bpmnElement="_19">
+        <dc:Bounds height="50.0" width="110.0" x="3176.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_21" bpmnElement="_20">
+        <dc:Bounds height="50.0" width="110.0" x="3336.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_22" bpmnElement="_21">
+        <dc:Bounds height="50.0" width="110.0" x="3496.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_23" bpmnElement="_22">
+        <dc:Bounds height="50.0" width="110.0" x="3656.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_24" bpmnElement="_23">
+        <dc:Bounds height="50.0" width="110.0" x="3816.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_25" bpmnElement="_24">
+        <dc:Bounds height="50.0" width="110.0" x="3976.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_26" bpmnElement="_25">
+        <dc:Bounds height="50.0" width="110.0" x="4136.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_27" bpmnElement="_26">
+        <dc:Bounds height="50.0" width="110.0" x="4296.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_28" bpmnElement="_27">
+        <dc:Bounds height="50.0" width="110.0" x="4456.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_29" bpmnElement="_28">
+        <dc:Bounds height="50.0" width="110.0" x="4616.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_30" bpmnElement="_29">
+        <dc:Bounds height="50.0" width="110.0" x="4776.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_31" bpmnElement="_30">
+        <dc:Bounds height="50.0" width="110.0" x="4936.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_32" bpmnElement="_31">
+        <dc:Bounds height="50.0" width="110.0" x="5096.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_33" bpmnElement="_32">
+        <dc:Bounds height="50.0" width="110.0" x="5256.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_34" bpmnElement="_33">
+        <dc:Bounds height="50.0" width="110.0" x="5416.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_35" bpmnElement="_34">
+        <dc:Bounds height="50.0" width="110.0" x="5576.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_36" bpmnElement="_35">
+        <dc:Bounds height="50.0" width="110.0" x="5736.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_37" bpmnElement="_36">
+        <dc:Bounds height="50.0" width="110.0" x="5896.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_38" bpmnElement="_37">
+        <dc:Bounds height="50.0" width="110.0" x="6056.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_39" bpmnElement="_38">
+        <dc:Bounds height="50.0" width="110.0" x="6216.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_40" bpmnElement="_39">
+        <dc:Bounds height="50.0" width="110.0" x="6376.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_1" bpmnElement="_40" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="6536.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_41" bpmnElement="_41">
+        <dc:Bounds height="50.0" width="110.0" x="6660.0" y="160.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_2" bpmnElement="_42" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="6822.0" y="160.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_42" bpmnElement="_43">
+        <dc:Bounds height="50.0" width="110.0" x="6792.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_3" bpmnElement="_44" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="6962.0" y="160.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_43" bpmnElement="_45">
+        <dc:Bounds height="50.0" width="110.0" x="7156.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_4" bpmnElement="_46" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="7316.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_44" bpmnElement="_47">
+        <dc:Bounds height="50.0" width="110.0" x="7418.0" y="107.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_45" bpmnElement="_48">
+        <dc:Bounds height="50.0" width="110.0" x="7680.0" y="106.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_46" bpmnElement="_49">
+        <dc:Bounds height="50.0" width="110.0" x="7840.0" y="106.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_47" bpmnElement="_50">
+        <dc:Bounds height="50.0" width="110.0" x="8000.0" y="106.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_5" bpmnElement="_51" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="8170.0" y="106.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_48" bpmnElement="_52">
+        <dc:Bounds height="50.0" width="110.0" x="8356.0" y="87.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_49" bpmnElement="_53">
+        <dc:Bounds height="50.0" width="110.0" x="8516.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_50" bpmnElement="_54">
+        <dc:Bounds height="50.0" width="110.0" x="8676.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_6" bpmnElement="_55" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="8416.0" y="161.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_7" bpmnElement="_56" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="7576.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_51" bpmnElement="_57">
+        <dc:Bounds height="50.0" width="110.0" x="8836.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_8" bpmnElement="_58" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="8996.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_52" bpmnElement="_59">
+        <dc:Bounds height="50.0" width="110.0" x="9096.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_53" bpmnElement="_60">
+        <dc:Bounds height="50.0" width="110.0" x="9356.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_54" bpmnElement="_61">
+        <dc:Bounds height="50.0" width="110.0" x="9516.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_55" bpmnElement="_62">
+        <dc:Bounds height="50.0" width="110.0" x="9676.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_56" bpmnElement="_63">
+        <dc:Bounds height="50.0" width="110.0" x="9836.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_57" bpmnElement="_64">
+        <dc:Bounds height="50.0" width="110.0" x="9996.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_58" bpmnElement="_65">
+        <dc:Bounds height="50.0" width="110.0" x="10156.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_59" bpmnElement="_66">
+        <dc:Bounds height="50.0" width="110.0" x="10316.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_60" bpmnElement="_67">
+        <dc:Bounds height="50.0" width="110.0" x="10476.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_9" bpmnElement="_68" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="9256.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_61" bpmnElement="_69">
+        <dc:Bounds height="50.0" width="110.0" x="10636.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_10" bpmnElement="_70" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="10796.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_62" bpmnElement="_71">
+        <dc:Bounds height="50.0" width="110.0" x="10896.0" y="50.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_72">
+        <dc:Bounds height="36.0" width="36.0" x="11056.0" y="57.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="_-1-_0" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_Task_1">
+        <di:waypoint xsi:type="dc:Point" x="86.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="136.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="_0to_1" sourceElement="BPMNShape_Task_1" targetElement="BPMNShape_Task_2">
+        <di:waypoint xsi:type="dc:Point" x="246.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="296.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="_1to_2" sourceElement="BPMNShape_Task_2" targetElement="BPMNShape_Task_3">
+        <di:waypoint xsi:type="dc:Point" x="406.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="456.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="_2to_3" sourceElement="BPMNShape_Task_3" targetElement="BPMNShape_Task_4">
+        <di:waypoint xsi:type="dc:Point" x="566.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="616.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="_3to_4" sourceElement="BPMNShape_Task_4" targetElement="BPMNShape_Task_5">
+        <di:waypoint xsi:type="dc:Point" x="726.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="776.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="_4to_5" sourceElement="BPMNShape_Task_5" targetElement="BPMNShape_Task_6">
+        <di:waypoint xsi:type="dc:Point" x="886.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="936.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="_5to_6" sourceElement="BPMNShape_Task_6" targetElement="BPMNShape_Task_7">
+        <di:waypoint xsi:type="dc:Point" x="1046.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1096.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="_6to_7" sourceElement="BPMNShape_Task_7" targetElement="BPMNShape_Task_8">
+        <di:waypoint xsi:type="dc:Point" x="1206.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1256.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="_7to_8" sourceElement="BPMNShape_Task_8" targetElement="BPMNShape_Task_9">
+        <di:waypoint xsi:type="dc:Point" x="1366.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1416.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="_8to_9" sourceElement="BPMNShape_Task_9" targetElement="BPMNShape_Task_10">
+        <di:waypoint xsi:type="dc:Point" x="1526.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1576.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="_9to_10" sourceElement="BPMNShape_Task_10" targetElement="BPMNShape_Task_11">
+        <di:waypoint xsi:type="dc:Point" x="1686.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1736.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="_10to_11" sourceElement="BPMNShape_Task_11" targetElement="BPMNShape_Task_12">
+        <di:waypoint xsi:type="dc:Point" x="1846.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1896.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="_11to_12" sourceElement="BPMNShape_Task_12" targetElement="BPMNShape_Task_13">
+        <di:waypoint xsi:type="dc:Point" x="2006.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2056.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_14" bpmnElement="_12to_13" sourceElement="BPMNShape_Task_13" targetElement="BPMNShape_Task_14">
+        <di:waypoint xsi:type="dc:Point" x="2166.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2216.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_15" bpmnElement="_13to_14" sourceElement="BPMNShape_Task_14" targetElement="BPMNShape_Task_15">
+        <di:waypoint xsi:type="dc:Point" x="2326.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2376.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_16" bpmnElement="_14to_15" sourceElement="BPMNShape_Task_15" targetElement="BPMNShape_Task_16">
+        <di:waypoint xsi:type="dc:Point" x="2486.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2536.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_17" bpmnElement="_15to_16" sourceElement="BPMNShape_Task_16" targetElement="BPMNShape_Task_17">
+        <di:waypoint xsi:type="dc:Point" x="2646.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2696.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_18" bpmnElement="_16to_17" sourceElement="BPMNShape_Task_17" targetElement="BPMNShape_Task_18">
+        <di:waypoint xsi:type="dc:Point" x="2806.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2856.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_19" bpmnElement="_17to_18" sourceElement="BPMNShape_Task_18" targetElement="BPMNShape_Task_19">
+        <di:waypoint xsi:type="dc:Point" x="2966.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3016.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_20" bpmnElement="_18to_19" sourceElement="BPMNShape_Task_19" targetElement="BPMNShape_Task_20">
+        <di:waypoint xsi:type="dc:Point" x="3126.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3176.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_21" bpmnElement="_19to_20" sourceElement="BPMNShape_Task_20" targetElement="BPMNShape_Task_21">
+        <di:waypoint xsi:type="dc:Point" x="3286.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3336.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_22" bpmnElement="_20to_21" sourceElement="BPMNShape_Task_21" targetElement="BPMNShape_Task_22">
+        <di:waypoint xsi:type="dc:Point" x="3446.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3496.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_23" bpmnElement="_21to_22" sourceElement="BPMNShape_Task_22" targetElement="BPMNShape_Task_23">
+        <di:waypoint xsi:type="dc:Point" x="3606.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3656.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_24" bpmnElement="_22to_23" sourceElement="BPMNShape_Task_23" targetElement="BPMNShape_Task_24">
+        <di:waypoint xsi:type="dc:Point" x="3766.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3816.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_25" bpmnElement="_23to_24" sourceElement="BPMNShape_Task_24" targetElement="BPMNShape_Task_25">
+        <di:waypoint xsi:type="dc:Point" x="3926.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3976.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_26" bpmnElement="_24to_25" sourceElement="BPMNShape_Task_25" targetElement="BPMNShape_Task_26">
+        <di:waypoint xsi:type="dc:Point" x="4086.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4136.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_27" bpmnElement="_25to_26" sourceElement="BPMNShape_Task_26" targetElement="BPMNShape_Task_27">
+        <di:waypoint xsi:type="dc:Point" x="4246.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4296.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_28" bpmnElement="_26to_27" sourceElement="BPMNShape_Task_27" targetElement="BPMNShape_Task_28">
+        <di:waypoint xsi:type="dc:Point" x="4406.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4456.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_29" bpmnElement="_27to_28" sourceElement="BPMNShape_Task_28" targetElement="BPMNShape_Task_29">
+        <di:waypoint xsi:type="dc:Point" x="4566.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4616.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_30" bpmnElement="_28to_29" sourceElement="BPMNShape_Task_29" targetElement="BPMNShape_Task_30">
+        <di:waypoint xsi:type="dc:Point" x="4726.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4776.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_31" bpmnElement="_29to_30" sourceElement="BPMNShape_Task_30" targetElement="BPMNShape_Task_31">
+        <di:waypoint xsi:type="dc:Point" x="4886.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4936.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_32" bpmnElement="_30to_31" sourceElement="BPMNShape_Task_31" targetElement="BPMNShape_Task_32">
+        <di:waypoint xsi:type="dc:Point" x="5046.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="5096.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_33" bpmnElement="_31to_32" sourceElement="BPMNShape_Task_32" targetElement="BPMNShape_Task_33">
+        <di:waypoint xsi:type="dc:Point" x="5206.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="5256.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_34" bpmnElement="_32to_33" sourceElement="BPMNShape_Task_33" targetElement="BPMNShape_Task_34">
+        <di:waypoint xsi:type="dc:Point" x="5366.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="5416.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_35" bpmnElement="_33to_34" sourceElement="BPMNShape_Task_34" targetElement="BPMNShape_Task_35">
+        <di:waypoint xsi:type="dc:Point" x="5526.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="5576.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_36" bpmnElement="_34to_35" sourceElement="BPMNShape_Task_35" targetElement="BPMNShape_Task_36">
+        <di:waypoint xsi:type="dc:Point" x="5686.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="5736.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_37" bpmnElement="_35to_36" sourceElement="BPMNShape_Task_36" targetElement="BPMNShape_Task_37">
+        <di:waypoint xsi:type="dc:Point" x="5846.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="5896.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_38" bpmnElement="_36to_37" sourceElement="BPMNShape_Task_37" targetElement="BPMNShape_Task_38">
+        <di:waypoint xsi:type="dc:Point" x="6006.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6056.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_39" bpmnElement="_37to_38" sourceElement="BPMNShape_Task_38" targetElement="BPMNShape_Task_39">
+        <di:waypoint xsi:type="dc:Point" x="6166.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6216.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_40" bpmnElement="_38to_39" sourceElement="BPMNShape_Task_39" targetElement="BPMNShape_Task_40">
+        <di:waypoint xsi:type="dc:Point" x="6326.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6376.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_41" bpmnElement="_39to_40" sourceElement="BPMNShape_Task_40" targetElement="BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="6486.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6536.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_42" bpmnElement="_43to_40" sourceElement="BPMNShape_Task_42" targetElement="BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="6792.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6587.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_43" bpmnElement="_40to_41" sourceElement="BPMNShape_ExclusiveGateway_1" targetElement="BPMNShape_Task_41">
+        <di:waypoint xsi:type="dc:Point" x="6587.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6660.0" y="185.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_44" bpmnElement="_41to_42" sourceElement="BPMNShape_Task_41" targetElement="BPMNShape_ExclusiveGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="6770.0" y="185.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6822.0" y="185.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_45" bpmnElement="_42to_43" sourceElement="BPMNShape_ExclusiveGateway_2" targetElement="BPMNShape_Task_42">
+        <di:waypoint xsi:type="dc:Point" x="6847.0" y="160.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6847.0" y="100.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_46" bpmnElement="_42to_44" sourceElement="BPMNShape_ExclusiveGateway_2" targetElement="BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="6873.0" y="185.0"/>
+        <di:waypoint xsi:type="dc:Point" x="6962.0" y="185.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_47" bpmnElement="_55to_44" sourceElement="BPMNShape_ExclusiveGateway_6" targetElement="BPMNShape_ExclusiveGateway_3">
+        <di:waypoint xsi:type="dc:Point" x="8416.0" y="186.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7013.0" y="185.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_48" bpmnElement="_44to_45" sourceElement="BPMNShape_ExclusiveGateway_3" targetElement="BPMNShape_Task_43">
+        <di:waypoint xsi:type="dc:Point" x="7013.0" y="185.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7156.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_49" bpmnElement="_45to_46" sourceElement="BPMNShape_Task_43" targetElement="BPMNShape_ExclusiveGateway_4">
+        <di:waypoint xsi:type="dc:Point" x="7266.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7316.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_50" bpmnElement="_46to_47" sourceElement="BPMNShape_ExclusiveGateway_4" targetElement="BPMNShape_Task_44">
+        <di:waypoint xsi:type="dc:Point" x="7367.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7418.0" y="132.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_51" bpmnElement="_46to_56" sourceElement="BPMNShape_ExclusiveGateway_4" targetElement="BPMNShape_ExclusiveGateway_7">
+        <di:waypoint xsi:type="dc:Point" x="7367.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7576.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_52" bpmnElement="_47to_48" sourceElement="BPMNShape_Task_44" targetElement="BPMNShape_Task_45">
+        <di:waypoint xsi:type="dc:Point" x="7528.0" y="132.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7680.0" y="131.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_53" bpmnElement="_48to_49" sourceElement="BPMNShape_Task_45" targetElement="BPMNShape_Task_46">
+        <di:waypoint xsi:type="dc:Point" x="7790.0" y="131.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7840.0" y="131.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_54" bpmnElement="_49to_50" sourceElement="BPMNShape_Task_46" targetElement="BPMNShape_Task_47">
+        <di:waypoint xsi:type="dc:Point" x="7950.0" y="131.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8000.0" y="131.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_55" bpmnElement="_50to_51" sourceElement="BPMNShape_Task_47" targetElement="BPMNShape_ExclusiveGateway_5">
+        <di:waypoint xsi:type="dc:Point" x="8110.0" y="131.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8170.0" y="131.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_56" bpmnElement="_51to_52" sourceElement="BPMNShape_ExclusiveGateway_5" targetElement="BPMNShape_Task_48">
+        <di:waypoint xsi:type="dc:Point" x="8221.0" y="131.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8356.0" y="112.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_57" bpmnElement="_51to_55" sourceElement="BPMNShape_ExclusiveGateway_5" targetElement="BPMNShape_ExclusiveGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="8221.0" y="131.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8416.0" y="186.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_58" bpmnElement="_52to_53" sourceElement="BPMNShape_Task_48" targetElement="BPMNShape_Task_49">
+        <di:waypoint xsi:type="dc:Point" x="8466.0" y="112.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8516.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_59" bpmnElement="_53to_54" sourceElement="BPMNShape_Task_49" targetElement="BPMNShape_Task_50">
+        <di:waypoint xsi:type="dc:Point" x="8626.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8676.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_60" bpmnElement="_54to_55" sourceElement="BPMNShape_Task_50" targetElement="BPMNShape_ExclusiveGateway_6">
+        <di:waypoint xsi:type="dc:Point" x="8676.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8467.0" y="186.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_61" bpmnElement="_67to_56" sourceElement="BPMNShape_Task_60" targetElement="BPMNShape_ExclusiveGateway_7">
+        <di:waypoint xsi:type="dc:Point" x="10476.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="7627.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_62" bpmnElement="_56to_57" sourceElement="BPMNShape_ExclusiveGateway_7" targetElement="BPMNShape_Task_51">
+        <di:waypoint xsi:type="dc:Point" x="7627.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8836.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_63" bpmnElement="_57to_58" sourceElement="BPMNShape_Task_51" targetElement="BPMNShape_ExclusiveGateway_8">
+        <di:waypoint xsi:type="dc:Point" x="8946.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="8996.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_64" bpmnElement="_58to_59" sourceElement="BPMNShape_ExclusiveGateway_8" targetElement="BPMNShape_Task_52">
+        <di:waypoint xsi:type="dc:Point" x="9047.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9096.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_65" bpmnElement="_58to_68" sourceElement="BPMNShape_ExclusiveGateway_8" targetElement="BPMNShape_ExclusiveGateway_9">
+        <di:waypoint xsi:type="dc:Point" x="9047.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9256.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_66" bpmnElement="_59to_60" sourceElement="BPMNShape_Task_52" targetElement="BPMNShape_Task_53">
+        <di:waypoint xsi:type="dc:Point" x="9206.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9356.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_67" bpmnElement="_60to_61" sourceElement="BPMNShape_Task_53" targetElement="BPMNShape_Task_54">
+        <di:waypoint xsi:type="dc:Point" x="9466.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9516.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_68" bpmnElement="_61to_62" sourceElement="BPMNShape_Task_54" targetElement="BPMNShape_Task_55">
+        <di:waypoint xsi:type="dc:Point" x="9626.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9676.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_69" bpmnElement="_62to_63" sourceElement="BPMNShape_Task_55" targetElement="BPMNShape_Task_56">
+        <di:waypoint xsi:type="dc:Point" x="9786.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9836.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_70" bpmnElement="_63to_64" sourceElement="BPMNShape_Task_56" targetElement="BPMNShape_Task_57">
+        <di:waypoint xsi:type="dc:Point" x="9946.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9996.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_71" bpmnElement="_64to_65" sourceElement="BPMNShape_Task_57" targetElement="BPMNShape_Task_58">
+        <di:waypoint xsi:type="dc:Point" x="10106.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="10156.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_72" bpmnElement="_65to_66" sourceElement="BPMNShape_Task_58" targetElement="BPMNShape_Task_59">
+        <di:waypoint xsi:type="dc:Point" x="10266.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="10316.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_73" bpmnElement="_66to_67" sourceElement="BPMNShape_Task_59" targetElement="BPMNShape_Task_60">
+        <di:waypoint xsi:type="dc:Point" x="10426.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="10476.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_74" bpmnElement="_71to_68" sourceElement="BPMNShape_Task_62" targetElement="BPMNShape_ExclusiveGateway_9">
+        <di:waypoint xsi:type="dc:Point" x="10896.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="9307.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_75" bpmnElement="_68to_69" sourceElement="BPMNShape_ExclusiveGateway_9" targetElement="BPMNShape_Task_61">
+        <di:waypoint xsi:type="dc:Point" x="9307.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="10636.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_76" bpmnElement="_69to_70" sourceElement="BPMNShape_Task_61" targetElement="BPMNShape_ExclusiveGateway_10">
+        <di:waypoint xsi:type="dc:Point" x="10746.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="10796.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_77" bpmnElement="_70to_71" sourceElement="BPMNShape_ExclusiveGateway_10" targetElement="BPMNShape_Task_62">
+        <di:waypoint xsi:type="dc:Point" x="10847.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="10896.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_78" bpmnElement="_70to_72" sourceElement="BPMNShape_ExclusiveGateway_10" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="10847.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="11056.0" y="75.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
