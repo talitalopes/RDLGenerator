@@ -5,10 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
-import org.jgrapht.DirectedGraph;
-import org.jgrapht.graph.DefaultDirectedGraph;
-import org.jgrapht.graph.DefaultEdge;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -19,35 +15,17 @@ import br.ufrj.cos.prisma.graphs.GatewayFinder;
 import br.ufrj.cos.prisma.util.Constants;
 import br.ufrj.cos.prisma.util.Util;
 
-public class XPDLGraph {
-
-	DirectedGraph<ModelNode, DefaultEdge> graph;
-	Map<ModelNode, Stack<ModelNode>> cyclesMap;
-	ModelNode startNode;
-	ModelNode endNode;
-	Document doc;
+public class XPDLGraph extends BaseGraph {
 
 	public XPDLGraph() {
-		this.graph = new DefaultDirectedGraph<ModelNode, DefaultEdge>(
-				DefaultEdge.class);
-		this.cyclesMap = new HashMap<ModelNode, Stack<ModelNode>>();
+		super();
 	}
 
 	public XPDLGraph(String model) {
-		if (model == null) {
-			Util.log("You must provide a valid url for a XPDL model");
-			return;
-		}
-
-		this.graph = new DefaultDirectedGraph<ModelNode, DefaultEdge>(
-				DefaultEdge.class);
-		this.cyclesMap = new HashMap<ModelNode, Stack<ModelNode>>();
-		this.doc = Util.getDomObject(model);
-
-		createGraph();
+		super(model);
 	}
 
-	private void createGraph() {
+	protected void createGraph() {
 		Map<String, ModelNode> nodesIds = new HashMap<String, ModelNode>();
 
 		// get activity elements
@@ -151,35 +129,4 @@ public class XPDLGraph {
 		}
 	}
 
-	public Stack<ModelNode> getCycleForNode(ModelNode node) {
-		return this.cyclesMap.get(node);
-	}
-
-	public void addNode(ModelNode node) {
-		this.graph.addVertex(node);
-	}
-
-	public void addEdge(ModelNode source, ModelNode target) {
-		this.graph.addEdge(source, target);
-	}
-
-	public void setStartNode(ModelNode node) {
-		this.startNode = node;
-	}
-
-	public ModelNode getStartNode() {
-		return this.startNode;
-	}
-
-	public void setEndNode(ModelNode node) {
-		this.endNode = node;
-	}
-
-	public ModelNode getEndNode() {
-		return this.endNode;
-	}
-
-	public DirectedGraph<ModelNode, DefaultEdge> getGraph() {
-		return graph;
-	}
 }
