@@ -26,30 +26,30 @@ public class XPDLGraph {
 	ModelNode startNode;
 	ModelNode endNode;
 	Document doc;
-	
+
 	public XPDLGraph() {
 		this.graph = new DefaultDirectedGraph<ModelNode, DefaultEdge>(
 				DefaultEdge.class);
 		this.cyclesMap = new HashMap<ModelNode, Stack<ModelNode>>();
 	}
-	
+
 	public XPDLGraph(String model) {
 		if (model == null) {
 			Util.log("You must provide a valid url for a XPDL model");
 			return;
 		}
-		
+
 		this.graph = new DefaultDirectedGraph<ModelNode, DefaultEdge>(
 				DefaultEdge.class);
 		this.cyclesMap = new HashMap<ModelNode, Stack<ModelNode>>();
 		this.doc = Util.getDomObject(model);
-		
+
 		createGraph();
 	}
-	
+
 	private void createGraph() {
 		Map<String, ModelNode> nodesIds = new HashMap<String, ModelNode>();
-		
+
 		// get activity elements
 		createNodesForActivities(nodesIds);
 
@@ -58,11 +58,11 @@ public class XPDLGraph {
 
 		// Find cycles
 		findCycles();
-		
+
 		// Find start and end nodes
 		findStartAndEndVertexs();
 	}
-	
+
 	private void createNodesForActivities(Map<String, ModelNode> nodesIds) {
 		NodeList nodes = Util.getNodesWithType(doc, Constants.ACTIVITY_TAG);
 
@@ -83,7 +83,8 @@ public class XPDLGraph {
 	}
 
 	private void createEdges(Map<String, ModelNode> nodesIds) {
-		NodeList transitions = Util.getNodesWithType(doc, Constants.TRANSITION_TAG);
+		NodeList transitions = Util.getNodesWithType(doc,
+				Constants.TRANSITION_TAG);
 		for (int temp = 0; temp < transitions.getLength(); temp++) {
 			Node sequenceNode = transitions.item(temp);
 			if (sequenceNode == null
@@ -110,35 +111,35 @@ public class XPDLGraph {
 
 		mapCycles(cycleFinder);
 	}
-	
+
 	public Stack<ModelNode> findNextGateway(ModelNode startNode) {
 		GatewayFinder gtwFinder = new GatewayFinder();
 		DFS dfs = new DFS(this.graph);
 		dfs.dfsVisit(startNode, "GATEWAY", gtwFinder);
-		
+
 		return gtwFinder.getPath();
 	}
-	
+
 	private void findStartAndEndVertexs() {
-		for (ModelNode n: this.graph.vertexSet()) {
+		for (ModelNode n : this.graph.vertexSet()) {
 			if (this.graph.inDegreeOf(n) == 0) {
 				setStartNode(n);
-			} 
-			
+			}
+
 			if (this.graph.outDegreeOf(n) == 0) {
 				setEndNode(n);
 			}
 		}
 	}
-	
+
 	private void mapCycles(CycleFinder cycleFinder) {
 		List<Stack<ModelNode>> cycles = cycleFinder.cycles();
-		
+
 		for (int i = 0; i < cycles.size(); i++) {
 			Stack<ModelNode> cycle = cycleFinder.cycles().get(i);
-			ModelNode loopBegin = cycle.get(0); //cycle.size() - 1
+			ModelNode loopBegin = cycle.get(0); // cycle.size() - 1
 			this.cyclesMap.put(loopBegin, cycle);
-			
+
 			String path = "";
 			for (int j = 0; j < cycle.size(); j++) {
 				String format = (j == cycle.size() - 1) ? "%s" : "%s --> ";
@@ -149,16 +150,16 @@ public class XPDLGraph {
 			Util.log(String.format("Cycle: %d -- Path: %s", i, path));
 		}
 	}
-	
+
 	public Stack<ModelNode> getCycleForNode(ModelNode node) {
 		return this.cyclesMap.get(node);
 	}
-	
-	public void addNode (ModelNode node) {
+
+	public void addNode(ModelNode node) {
 		this.graph.addVertex(node);
 	}
 
-	public void addEdge (ModelNode source, ModelNode target) {
+	public void addEdge(ModelNode source, ModelNode target) {
 		this.graph.addEdge(source, target);
 	}
 
@@ -169,7 +170,7 @@ public class XPDLGraph {
 	public ModelNode getStartNode() {
 		return this.startNode;
 	}
-	
+
 	public void setEndNode(ModelNode node) {
 		this.endNode = node;
 	}
