@@ -15,12 +15,15 @@ public class Constants {
 //	public static final String XPDLFile = "input/5-commits-log.xpdl";
 	public static final String XPDLFile = "input/graphiti1.xpdl";
 //	public static final String XPDLFile = "input/test.xpdl.xml";
+	public static String XPDL_TRANSITION_SOURCE_TAG = "From";
+	public static String XPDL_TRANSITION_TARGET_TAG = "To";
+
 
 	//------------------
 	// Causal net tags |
 	//------------------
 	
-	public static String CNET_ACTIVITY_TAG = "node";
+	public static String CNET_ACTIVITY_TAG = "name";
 	public static String CNET_TRANSITION_TAG = "arc";
 	public static String CNET_TRANSITION_SOURCE_TAG = "source";
 	public static String CNET_TRANSITION_TARGET_TAG = "target";

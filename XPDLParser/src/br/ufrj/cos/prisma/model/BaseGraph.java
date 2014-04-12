@@ -135,4 +135,11 @@ public abstract class BaseGraph {
 			Util.log(String.format("Cycle: %d -- Path: %s", i, path));
 		}
 	}
+
+	public void printInfo() {
+		System.out.println(String.format("Nodes: %d, edges: %d", this.graph
+				.vertexSet().size(), this.graph.edgeSet().size()));
+		System.out.println("Start Node: " + getStartNode().name);
+		System.out.println("End Node: " + getEndNode().name);
+	}
 }
