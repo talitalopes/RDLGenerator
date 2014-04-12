@@ -135,7 +135,23 @@ public abstract class BaseGraph {
 			Util.log(String.format("Cycle: %d -- Path: %s", i, path));
 		}
 	}
+	
+	public void printCycles(CycleFinder cycleFinder) {
+		List<Stack<ModelNode>> cycles = cycleFinder.cycles();
+		Util.log("Detected Cycles: " + cycles.size());
 
+		for (int i = 0; i < cycles.size(); i++) {
+			Stack<ModelNode> cycle = cycleFinder.cycles().get(i);
+
+			String path = "";
+			for (int j = 0; j < cycle.size(); j++) {
+				String format = (j == cycle.size() - 1) ? "%s" : "%s --> ";
+				path += String.format(format, (cycle.get(j).getName()));
+			}
+			Util.log(String.format("Cycle: %d -- Path: %s", i, path));
+		}
+	}
+	
 	public void printInfo() {
 		System.out.println(String.format("Nodes: %d, edges: %d", this.graph
 				.vertexSet().size(), this.graph.edgeSet().size()));
