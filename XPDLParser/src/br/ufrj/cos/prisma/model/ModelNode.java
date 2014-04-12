@@ -119,20 +119,20 @@ public class ModelNode {
 	}
 	
 	public static Set<DefaultEdge> getNonVisitedEdges(DirectedGraph<ModelNode, DefaultEdge> modelGraph, ModelNode n) {
-		Set<DefaultEdge> edges = new HashSet<DefaultEdge>();
+		Set<DefaultEdge> nonVisitedEdges = new HashSet<DefaultEdge>();
 		if (n == null || modelGraph == null) {
-			return edges;
+			return nonVisitedEdges;
 		}
 		
-		edges = modelGraph.outgoingEdgesOf(n);
+		Set<DefaultEdge> edges = modelGraph.outgoingEdgesOf(n);
 		Iterator<DefaultEdge> iter = edges.iterator();
 		while (iter.hasNext()) {
 			DefaultEdge edge = iter.next();
 			if (!modelGraph.getEdgeTarget(edge).isVisited()) {
-				edges.add(edge);
+				nonVisitedEdges.add(edge);
 			}
 		}
 		
-		return edges;
+		return nonVisitedEdges;
 	}
 }
