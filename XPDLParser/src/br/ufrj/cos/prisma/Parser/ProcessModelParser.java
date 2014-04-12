@@ -10,14 +10,15 @@ import java.util.Stack;
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
+import br.ufrj.cos.prisma.model.CNetGraph;
 import br.ufrj.cos.prisma.model.ModelNode;
 import br.ufrj.cos.prisma.model.XPDLGraph;
 import br.ufrj.cos.prisma.util.Constants;
-import br.ufrj.cos.prisma.util.Util;
 
-public class XPDLParser {
+public class ProcessModelParser {
 
 	static XPDLGraph graph;
+	static CNetGraph cnetGraph;
 	static DirectedGraph<ModelNode, DefaultEdge> modelGraph;
 	static RDLWriter rdlWriter = new RDLWriter();
 	static List<ModelNode> nodesToVisit;
@@ -26,9 +27,15 @@ public class XPDLParser {
 	static Set<DefaultEdge> visitedEdges;
 	static int vertexCount = 0;
 	static int edgesCount = 0;
-	static boolean visitEdges = true;
+	static boolean visitEdges = false;
 
 	public static void main(String[] args) {
+//		cnetGraph = new CNetGraph(Constants.CNETFile);
+//		cnetGraph.printInfo();
+		oldMain();
+	}
+	
+	private static void oldMain() {
 		graph = new XPDLGraph(Constants.XPDLFile);
 		modelGraph = graph.getGraph();
 
@@ -47,7 +54,7 @@ public class XPDLParser {
 		if (visitEdges) {
 			traverseGraphMarkingEdges();
 		} else {
-			traverseGraph();			
+			XPDLParserManager.getInstance().traverseGraph();			
 		}
 		
 		log(String.format("Final vertex count: %d", visited.size()));
@@ -125,72 +132,72 @@ public class XPDLParser {
 		}
 	}
 	
-	private static void traverseGraph() {
-		ModelNode rootNode = graph.getStartNode();
-		nodesToVisit.add(rootNode);
+//	private static void traverseGraph() {
+//		ModelNode rootNode = graph.getStartNode();
+//		nodesToVisit.add(rootNode);
+//
+//		while (nodesToVisit.size() > 0) {
+//			ModelNode visitingNode = nodesToVisit.remove(0);
+//			System.out.println("Current node: " + visitingNode.getId());
+//			Set<DefaultEdge> edges = isNodeVisited(visitingNode);
+//			if (edges == null || edges.size() == 0) {
+//				continue;
+//			}
+//			vertexCount++;
+//			visitingNode.setVisited(true);
+//			visited.add(visitingNode.getUniqueId());
+//
+//			// Set<DefaultEdge> edges =
+//			// modelGraph.outgoingEdgesOf(visitingNode);
+//			// if (edges.size() == 0) {
+//			// continue;
+//			// }
+//			addNodesToVisit(edges);
+//
+//			if (!visitingNode.isGateway() && !visitingNode.isInsideLoop()) {
+////				rdlWriter.addClassExtensionOrMethodExtension(visitingNode);
+//			} else {
+//				if (visitingNode.isBeginLoop()) {
+//					System.out.println("begin loop: " + graph.getCycleForNode(visitingNode).size());
+//					for (ModelNode n : graph.getCycleForNode(visitingNode)) {
+//						System.out.println(" >> Current node: " + n.getId());
+//					}
+//					System.out.println("end loop");
+//					
+////					writeLoop(visitingNode);
+//				} else {
+//					Stack<ModelNode> path = graph.findNextGateway(visitingNode);
+//					Iterator<ModelNode> iter = path.iterator();
+//					System.out.println("begin if: " + path.size());
+//					while (iter.hasNext()) {
+//						ModelNode n = iter.next();
+//						System.out.println(" >> Current node: " + n.getId());
+//					}
+//					System.out.println("end if");
+////					ModelNode lastNode = writeIf(visitingNode);
+//					// if (isNodeVisited(visitingNode).size() > 0) {
+////					nodesToVisit.add(visitingNode);
+//					// }
+//				}
+//			}
+//
+//		}
+//
+//		rdlWriter.closeScript();
+//		rdlWriter.generateRDLFile();
+//		Util.log("Finished");
+//	}
 
-		while (nodesToVisit.size() > 0) {
-			ModelNode visitingNode = nodesToVisit.remove(0);
-			System.out.println("Current node: " + visitingNode.getId());
-			Set<DefaultEdge> edges = isNodeVisited(visitingNode);
-			if (edges == null || edges.size() == 0) {
-				continue;
-			}
-			vertexCount++;
-			visitingNode.setVisited(true);
-			visited.add(visitingNode.getUniqueId());
-
-			// Set<DefaultEdge> edges =
-			// modelGraph.outgoingEdgesOf(visitingNode);
-			// if (edges.size() == 0) {
-			// continue;
-			// }
-			addNodesToVisit(edges);
-
-			if (!visitingNode.isGateway() && !visitingNode.isInsideLoop()) {
-//				rdlWriter.addClassExtensionOrMethodExtension(visitingNode);
-			} else {
-				if (visitingNode.isBeginLoop()) {
-					System.out.println("begin loop: " + graph.getCycleForNode(visitingNode).size());
-					for (ModelNode n : graph.getCycleForNode(visitingNode)) {
-						System.out.println(" >> Current node: " + n.getId());
-					}
-					System.out.println("end loop");
-					
-//					writeLoop(visitingNode);
-				} else {
-					Stack<ModelNode> path = graph.findNextGateway(visitingNode);
-					Iterator<ModelNode> iter = path.iterator();
-					System.out.println("begin if: " + path.size());
-					while (iter.hasNext()) {
-						ModelNode n = iter.next();
-						System.out.println(" >> Current node: " + n.getId());
-					}
-					System.out.println("end if");
-//					ModelNode lastNode = writeIf(visitingNode);
-					// if (isNodeVisited(visitingNode).size() > 0) {
-//					nodesToVisit.add(visitingNode);
-					// }
-				}
-			}
-
-		}
-
-		rdlWriter.closeScript();
-		rdlWriter.generateRDLFile();
-		Util.log("Finished");
-	}
-
-	private static void addNodesToVisit(Set<DefaultEdge> edges) {
-		DefaultEdge edge = (DefaultEdge) edges.iterator().next();
-		Iterator<DefaultEdge> iter = edges.iterator();
-		edgesCount += edges.size();
-		while (iter.hasNext()) {
-			edge = iter.next();
-			nodesToVisit.add(modelGraph.getEdgeTarget(edge));
-		}
-
-	}
+//	private static void addNodesToVisit(Set<DefaultEdge> edges) {
+//		DefaultEdge edge = (DefaultEdge) edges.iterator().next();
+//		Iterator<DefaultEdge> iter = edges.iterator();
+//		edgesCount += edges.size();
+//		while (iter.hasNext()) {
+//			edge = iter.next();
+//			nodesToVisit.add(modelGraph.getEdgeTarget(edge));
+//		}
+//
+//	}
 
 	private static void writeLoop(ModelNode visitingNode) {
 		rdlWriter.addBeginLoop();
@@ -245,26 +252,26 @@ public class XPDLParser {
 		return lastNode;
 	}
 
-	private static Set<DefaultEdge> isNodeVisited(ModelNode n) {
-		Set<DefaultEdge> nonVisitedEdges = new HashSet<DefaultEdge>();
-		if (n == null) {
-			return nonVisitedEdges;
-		}
-
-		Set<DefaultEdge> edges = modelGraph.outgoingEdgesOf(n);
-//		System.out.println("Edges: " + edges.size());
-		Iterator<DefaultEdge> iter = edges.iterator();
-
-		while (iter.hasNext()) {
-			DefaultEdge edge = iter.next();
-			if (!visited.contains(modelGraph.getEdgeTarget(edge).getUniqueId())) {
-				nonVisitedEdges.add(edge);
-			}
-			// visited = visited && modelGraph.getEdgeTarget(edge).isVisited();
-		}
-//		System.out.println("nonVisitedEdges Edges: " + nonVisitedEdges.size());
-		return nonVisitedEdges;
-	}
+//	private static Set<DefaultEdge> isNodeVisited(ModelNode n) {
+//		Set<DefaultEdge> nonVisitedEdges = new HashSet<DefaultEdge>();
+//		if (n == null) {
+//			return nonVisitedEdges;
+//		}
+//
+//		Set<DefaultEdge> edges = modelGraph.outgoingEdgesOf(n);
+////		System.out.println("Edges: " + edges.size());
+//		Iterator<DefaultEdge> iter = edges.iterator();
+//
+//		while (iter.hasNext()) {
+//			DefaultEdge edge = iter.next();
+//			if (!visited.contains(modelGraph.getEdgeTarget(edge).getUniqueId())) {
+//				nonVisitedEdges.add(edge);
+//			}
+//			// visited = visited && modelGraph.getEdgeTarget(edge).isVisited();
+//		}
+////		System.out.println("nonVisitedEdges Edges: " + nonVisitedEdges.size());
+//		return nonVisitedEdges;
+//	}
 
 	private static void log(String message) {
 		System.out.println(message);
