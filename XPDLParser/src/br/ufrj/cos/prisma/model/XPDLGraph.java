@@ -1,7 +1,5 @@
 package br.ufrj.cos.prisma.model;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -9,7 +7,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import br.ufrj.cos.prisma.graphs.CycleFinder;
 import br.ufrj.cos.prisma.graphs.DFS;
 import br.ufrj.cos.prisma.graphs.GatewayFinder;
 import br.ufrj.cos.prisma.util.Constants;
@@ -27,7 +24,7 @@ public class XPDLGraph extends BaseGraph {
 
 	@Override
 	protected void createNodesForActivities(Map<String, ModelNode> nodesIds) {
-		NodeList nodes = Util.getNodesWithType(doc, Constants.ACTIVITY_TAG);
+		NodeList nodes = Util.getNodesWithType(doc, Constants.XPDL_ACTIVITY_TAG);
 
 		for (int temp = 0; temp < nodes.getLength(); temp++) {
 			Node node = nodes.item(temp);
@@ -48,7 +45,7 @@ public class XPDLGraph extends BaseGraph {
 	@Override
 	protected void createEdges(Map<String, ModelNode> nodesIds) {
 		NodeList transitions = Util.getNodesWithType(doc,
-				Constants.TRANSITION_TAG);
+				Constants.XPDL_TRANSITION_TAG);
 		for (int temp = 0; temp < transitions.getLength(); temp++) {
 			Node sequenceNode = transitions.item(temp);
 			if (sequenceNode == null
