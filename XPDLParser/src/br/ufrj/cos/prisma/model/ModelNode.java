@@ -19,8 +19,21 @@ public class ModelNode {
 	boolean visited;
 	boolean insideLoop;
 	String uniqueId;
+	String name;
+	String id;
 	
 	public ModelNode() {
+	}
+	
+	public ModelNode(String id, String name) {
+		this.beginLoop = false;
+		this.endLoop = false;
+		this.visited = false;
+		this.beginConditional = false;
+		this.endConditional = false;
+		this.id = id;
+		this.name = name;
+		this.uniqueId = this.getId()+""+ this.getName();	
 	}
 	
 	public ModelNode(Node n) {
@@ -32,15 +45,7 @@ public class ModelNode {
 		this.node = n;
 		this.uniqueId = this.getId()+""+ this.getName();
 	}
-	
-	public Node getNode() {
-		return node;
-	}
-	
-	public void setNode(Node node) {
-		this.node = node;
-	}
-		
+			
 	public boolean isBeginLoop() {
 		return beginLoop;
 	}
@@ -94,13 +99,19 @@ public class ModelNode {
 	}
 
 	public String getName() {
-		Element cElement = (Element) this.getNode();
-		return cElement.getAttribute("Name");
+		if (node != null) {
+			Element cElement = (Element) this.node;
+			return cElement.getAttribute("Name");
+		}
+		return this.name;
 	}
 
 	public String getId() {
-		Element cElement = (Element) this.getNode();
-		return cElement.getAttribute("Id");
+		if (node != null) {
+			Element cElement = (Element) this.node;
+			return cElement.getAttribute("Id");
+		}
+		return this.id;
 	}
 
 	public String getUniqueId() {

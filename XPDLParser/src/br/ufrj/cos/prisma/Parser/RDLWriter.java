@@ -22,10 +22,10 @@ public class RDLWriter {
 	}
 
 	public void addClassExtensionOrMethodExtension(ModelNode mNode) {
-		Element el = (Element) mNode.getNode();
+		String name = mNode.getName();
 
-		if (el.getAttribute("Name").contains(Constants.CLASS_EXTENSION_PREFIX)) {
-			String superName = el.getAttribute("Name").split("_")[1];
+		if (name.contains(Constants.CLASS_EXTENSION_PREFIX)) {
+			String superName = name.split("_")[1];
 			System.out.println(String.format("CLASS_EXTENSION(%s, %s, \"?\");",
 					superName, Constants.PACKAGE_VAR_NAME));
 		}
