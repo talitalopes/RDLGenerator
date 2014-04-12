@@ -32,7 +32,7 @@ public class ProcessModelParser {
 	public static void main(String[] args) {
 //		cnetGraph = new CNetGraph(Constants.CNETFile);
 //		cnetGraph.printInfo();
-		oldMain();
+		CNETParserManager.getInstance().traverseGraphv1();
 	}
 	
 	private static void oldMain() {
@@ -199,7 +199,7 @@ public class ProcessModelParser {
 //
 //	}
 
-	private static void writeLoop(ModelNode visitingNode) {
+	public static void writeLoop(ModelNode visitingNode) {
 		rdlWriter.addBeginLoop();
 
 		for (ModelNode n : graph.getCycleForNode(visitingNode)) {

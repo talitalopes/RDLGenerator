@@ -42,7 +42,7 @@ public class XPDLGraph extends BaseGraph {
 			nodesIds.put(id, mNode);
 		}
 	}
-
+	
 	@Override
 	protected void createEdges(Map<String, ModelNode> nodesIds) {
 		NodeList transitions = Util.getNodesWithType(doc,
