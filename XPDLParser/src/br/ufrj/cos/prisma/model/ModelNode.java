@@ -1,5 +1,11 @@
 package br.ufrj.cos.prisma.model;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.jgrapht.DirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -8,7 +14,7 @@ public class ModelNode {
 	Node node;
 	boolean beginLoop;
 	boolean endLoop;
-	boolean endIf;
+	boolean beginConditional;
 	boolean visited;
 	boolean insideLoop;
 	String uniqueId;
@@ -20,6 +26,7 @@ public class ModelNode {
 		this.beginLoop = false;
 		this.endLoop = false;
 		this.visited = false;
+		this.beginConditional = false;
 		this.node = n;
 		this.uniqueId = this.getId()+""+ this.getName();
 	}
@@ -44,12 +51,12 @@ public class ModelNode {
 		return endLoop;
 	}
 	
-	public void setEndIf(boolean endIf) {
-		this.endIf = endIf;
+	public void setBeginConditional(boolean beginConditional) {
+		this.beginConditional = beginConditional;
 	}
 
-	public boolean isEndIf() {
-		return endIf;
+	public boolean beginConditional() {
+		return beginConditional;
 	}
 	
 	public void setEndLoop(boolean endLoop) {
@@ -88,5 +95,23 @@ public class ModelNode {
 
 	public String getUniqueId() {
 		return this.uniqueId;
+	}
+	
+	public static Set<DefaultEdge> getNonVisitedEdges(DirectedGraph<ModelNode, DefaultEdge> modelGraph, ModelNode n) {
+		Set<DefaultEdge> edges = new HashSet<DefaultEdge>();
+		if (n == null || modelGraph == null) {
+			return edges;
+		}
+		
+		edges = modelGraph.outgoingEdgesOf(n);
+		Iterator<DefaultEdge> iter = edges.iterator();
+		while (iter.hasNext()) {
+			DefaultEdge edge = iter.next();
+			if (!modelGraph.getEdgeTarget(edge).isVisited()) {
+				edges.add(edge);
+			}
+		}
+		
+		return edges;
 	}
 }
