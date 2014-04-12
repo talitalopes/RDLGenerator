@@ -1,7 +1,5 @@
 package br.ufrj.cos.prisma.Parser;
 
-import org.w3c.dom.Element;
-
 import br.ufrj.cos.prisma.model.ModelNode;
 import br.ufrj.cos.prisma.util.Constants;
 

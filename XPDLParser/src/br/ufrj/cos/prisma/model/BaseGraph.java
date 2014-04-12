@@ -9,7 +9,6 @@ import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultDirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 import br.ufrj.cos.prisma.graphs.CycleFinder;
 import br.ufrj.cos.prisma.graphs.DFS;

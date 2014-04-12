@@ -31,7 +31,7 @@ public class XPDLGraphParser {
 			Util.log("You must provide a valid url for a XPDL model");
 			return;
 		}
-		
+
 		this.modelGraph = new XPDLGraph();
 		this.doc = Util.getDomObject(xpdlModel);
 
@@ -51,7 +51,7 @@ public class XPDLGraphParser {
 
 		// Find cycles
 		findCycles();
-		
+
 		// Find start and end nodes
 		findStartAndEndVertexs();
 	}
@@ -103,9 +103,9 @@ public class XPDLGraphParser {
 
 		printCycles(cycleFinder);
 	}
-	
+
 	private void findStartAndEndVertexs() {
-		for (ModelNode n: modelGraph.getGraph().vertexSet()) {
+		for (ModelNode n : modelGraph.getGraph().vertexSet()) {
 			if (modelGraph.getGraph().inDegreeOf(n) == 0)
 				modelGraph.setStartNode(n);
 			if (modelGraph.getGraph().outDegreeOf(n) == 0)
@@ -123,9 +123,7 @@ public class XPDLGraphParser {
 			String path = "";
 			for (int j = 0; j < cycle.size(); j++) {
 				String format = (j == cycle.size() - 1) ? "%s" : "%s --> ";
-				path += String
-						.format(format, ((Element) cycle.get(j).getNode())
-								.getAttribute("Name"));
+				path += String.format(format, (cycle.get(j).getName()));
 			}
 			Util.log(String.format("Cycle: %d -- Path: %s", i, path));
 		}
