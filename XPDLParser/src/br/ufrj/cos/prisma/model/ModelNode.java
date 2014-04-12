@@ -15,6 +15,7 @@ public class ModelNode {
 	boolean beginLoop;
 	boolean endLoop;
 	boolean beginConditional;
+	boolean endConditional;
 	boolean visited;
 	boolean insideLoop;
 	String uniqueId;
@@ -27,6 +28,7 @@ public class ModelNode {
 		this.endLoop = false;
 		this.visited = false;
 		this.beginConditional = false;
+		this.endConditional = false;
 		this.node = n;
 		this.uniqueId = this.getId()+""+ this.getName();
 	}
@@ -58,7 +60,15 @@ public class ModelNode {
 	public boolean beginConditional() {
 		return beginConditional;
 	}
-	
+
+	public void setEndConditional(boolean endConditional) {
+		this.endConditional = endConditional;
+	}
+
+	public boolean endConditional() {
+		return endConditional;
+	}
+
 	public void setEndLoop(boolean endLoop) {
 		this.endLoop = endLoop;
 	}

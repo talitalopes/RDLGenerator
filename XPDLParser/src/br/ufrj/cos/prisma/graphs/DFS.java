@@ -75,7 +75,7 @@ public class DFS {
         	
         	if (v != startNode && v.getName().contains(nodeName)) {
         		visitor.skipChild(v);
-        		v.setEndIf(true);
+        		v.setEndConditional(true);
         		v.setVisited(false);
         		return;
         	}
