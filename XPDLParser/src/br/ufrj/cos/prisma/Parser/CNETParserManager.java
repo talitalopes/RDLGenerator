@@ -10,6 +10,7 @@ import org.jgrapht.graph.DefaultEdge;
 import br.ufrj.cos.prisma.model.CNetGraph;
 import br.ufrj.cos.prisma.model.ModelNode;
 import br.ufrj.cos.prisma.util.Constants;
+import br.ufrj.cos.prisma.util.StringUtils;
 import br.ufrj.cos.prisma.util.Util;
 
 public class CNETParserManager {
@@ -30,10 +31,10 @@ public class CNETParserManager {
 
 	public void traverseGraphv1() {
 		ModelNode rootNode = cnetGraph.getStartNode();
-		traverseFromNode(rootNode);
+		traverseFromNode(rootNode, 0);
 	}
 
-	public void traverseFromNode(ModelNode rootNode) {
+	public void traverseFromNode(ModelNode rootNode, int level) {
 		List<ModelNode> nodesToVisit = new ArrayList<ModelNode>();
 		nodesToVisit.add(rootNode);
 
@@ -45,10 +46,10 @@ public class CNETParserManager {
 			if (visitingNode.beginConditional() && !visitingNode.isVisited()) {
 				// mark as visited
 				visitingNode.setVisited(true);
-
-				printBeginConditional(visitingNode);
-				traverseFromNode(visitingNode);
-				printEndConditional();
+				int condLevel = level + 1;
+				printBeginConditional(visitingNode, condLevel);
+				traverseFromNode(visitingNode, condLevel);
+				printEndConditional(condLevel);
 				continue;
 			}
 
@@ -62,33 +63,40 @@ public class CNETParserManager {
 			nodesToVisit.addAll(addNodesToVisit(edges));
 
 			if (!visitingNode.isVisited()) {
-				printNode(visitingNode);
+				printNode(visitingNode, level);
 				visitingNode.setVisited(true);
 			}
 		}
 	}
 
-	private void printBeginConditional(ModelNode n) {
-		System.out.println(String.format("IF( %s?)?", n.getName()));
-		System.out.println(n.getName());
+	private void printBeginConditional(ModelNode n, int level) {
+		String conditionalStr = String.format("IF (%s)? {", n.getName());
+		printCodeLine(conditionalStr, level-1);
+		printNode(n, level);
 	}
 
-	private void printEndConditional() {
-		System.out.println("}");
+	private void printEndConditional(int level) {
+		printCodeLine("}\n", level-1);
 	}
 
-	private void printNode(ModelNode n) {
-		System.out.println(n.getName());
+	private void printNode(ModelNode n, int level) {
+		printCodeLine(n.getName(), level);
 	}
 
+	private void printCodeLine(String string, int level) {
+		String tab = "  ";
+		String tabForLevel = StringUtils.repeat(tab, level);
+		System.out.println(String.format("%s%s", tabForLevel, string));
+	}
+	
 	private List<ModelNode> addNodesToVisit(Set<DefaultEdge> edges) {
 		List<ModelNode> nodesToVisit = new ArrayList<ModelNode>();
-		
+
 		boolean beginConditional = edges.size() > 1;
 		DefaultEdge edge = (DefaultEdge) edges.iterator().next();
 		Iterator<DefaultEdge> iter = edges.iterator();
 		edgesCount += edges.size();
-		
+
 		while (iter.hasNext()) {
 			edge = iter.next();
 			ModelNode node2Visit = cnetGraph.getGraph().getEdgeTarget(edge);
