@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package Id="XPDL_BPMN Diagram" Name="BPMN Diagram">
+	<PackageHeader>
+	<XPDLVersion>
+	2.0
+</XPDLVersion>
+<Vendor>
+	ProM
+</Vendor>
+<Created>
+	15/12/2013 09:45
+</Created>
+<Description>
+	ProM Mined BPMN Model
+</Description>
+<Documentation>
+	ProM Mined BPMN Model
+</Documentation>
+
+</PackageHeader>
+<Pools/>
+<WorkflowProcesses>
+	<WorkflowProcess Id="MainProcess-WF_BPMN Diagram" Name="BPMN Diagram" AccessLevel="PUBLIC">
+	<ProcessHeader>
+	<Created>
+	15/12/2013 09:45
+</Created>
+<Priority>
+	Normal
+</Priority>
+
+</ProcessHeader>
+<RedefinableHeader>
+	<Author>
+	ProM
+</Author>
+<Version>
+	2.0
+</Version>
+
+</RedefinableHeader>
+<XpdlParticipants>
+	<Participant Id="currentOwner">
+	<ParticipantType Type="ROLE"/>
+
+</Participant>
+
+</XpdlParticipants>
+<ActivitySets/>
+<Activities>
+	<Activity Id="-194072583" Name="ClassExtension_org.eclipse.gef.editparts.AbstractTreeEditPart"/>
+<Activity Id="832809242" Name="ClassExtension_org.eclipse.gef.editpolicies.FlowLayoutEditPolicy"/>
+<Activity Id="-1307115913" Name="ClassExtension_org.eclipse.gef.editparts.AbstractConnectionEditPart"/>
+<Activity Id="2062999214" Name="ClassExtension_org.eclipse.gef.tools.AbstractTool"/>
+<Activity Id="1729906921" Name="ClassExtension_org.eclipse.gef.editpolicies.XYLayoutEditPolicy"/>
+<Activity Id="1536058067" Name="END"/>
+<Activity Id="333747972" Name="ClassExtension_org.eclipse.gef.editpolicies.ComponentEditPolicy"/>
+<Activity Id="-1738341103" Name="ClassExtension_org.eclipse.gef.editpolicies.GraphicalNodeEditPolicy"/>
+<Activity Id="-1610594245" Name="END_PLUGIN"/>
+<Activity Id="2021135442" Name="ClassExtension_org.eclipse.gef.ui.actions.ActionBarContributor"/>
+<Activity Id="-1312639966" Name="ClassExtension_org.eclipse.gef.editparts.AbstractGraphicalEditPart"/>
+<Activity Id="1710422330" Name="ClassExtension_org.eclipse.gef.editpolicies.ConnectionEditPolicy"/>
+<Activity Id="2116544382" Name="ClassExtension_org.eclipse.gef.editpolicies.ContainerEditPolicy"/>
+<Activity Id="90771114" Name="ClassExtension_org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette"/>
+<Activity Id="1447980230" Name="CREATE_PLUGIN"/>
+<Activity Id="567992290" Name="ClassExtension_org.eclipse.gef.commands.Command"/>
+<Activity Id="153809858" Name="ClassExtension_org.eclipse.gef.ui.parts.GraphicalEditor"/>
+<Activity Id="1777475805" Name="START"/>
+<Activity Id="-353443697" Name="ClassExtension_org.eclipse.gef.ContextMenuProvider"/>
+<Activity Id="1195252594" Name="START EVENT">
+	<Event>
+	<StartEvent Trigger="None"/>
+
+</Event>
+
+</Activity>
+<Activity Id="640541060" Name="END EVENT">
+	<Event>
+	<EndEvent/>
+
+</Event>
+
+</Activity>
+<Activity Id="1438786557" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="-831027115" Name="-831027115"/>
+<TransitionRef Id="-2120064578" Name="-2120064578"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-749407852" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="-1761517943" Name="-1761517943"/>
+<TransitionRef Id="341341975" Name="341341975"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="1370256677" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="-276465881" Name="-276465881"/>
+<TransitionRef Id="703605903" Name="703605903"/>
+<TransitionRef Id="654394159" Name="654394159"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-176596332" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="1013274752" Name="1013274752"/>
+<TransitionRef Id="-525166653" Name="-525166653"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-1881054117" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="2057950464" Name="2057950464"/>
+<TransitionRef Id="1622123414" Name="1622123414"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-45181385" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="56949915" Name="56949915"/>
+<TransitionRef Id="1612649399" Name="1612649399"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="409534241" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="-568167748" Name="-568167748"/>
+<TransitionRef Id="-1777198468" Name="-1777198468"/>
+<TransitionRef Id="-581541612" Name="-581541612"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="1537859665" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="-1861578861" Name="-1861578861"/>
+<TransitionRef Id="-1239235864" Name="-1239235864"/>
+<TransitionRef Id="-958224045" Name="-958224045"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-1023906941" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="306934200" Name="306934200"/>
+<TransitionRef Id="7467" Name="7467"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="576206122" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="-700636363" Name="-700636363"/>
+<TransitionRef Id="-1506053841" Name="-1506053841"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-420977255" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Split Type="XOR">
+	<TransitionRefs>
+	<TransitionRef Id="934736754" Name="934736754"/>
+<TransitionRef Id="-335607163" Name="-335607163"/>
+
+</TransitionRefs>
+
+</Split>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="1321163171" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="1680139965" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="492045793" Name="INCLUSIVE_GATEWAY">
+	<Route GatewayType="OR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="OR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="2011253313" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="735739497" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-2021460674" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="1431090895" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="1687197541" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="1059657765" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+<Activity Id="-1431979722" Name="EXCLUSIVE-GATEWAY">
+	<Route GatewayType="XOR" MarkerVisible="true"/>
+<TransitionRestrictions>
+	<TransitionRestriction>
+	<Join Type="XOR"/>
+
+</TransitionRestriction>
+
+</TransitionRestrictions>
+
+</Activity>
+
+</Activities>
+<Transitions>
+	<Transition Id="1244266270" From="1195252594" To="1777475805">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="1432553446" From="1536058067" To="640541060">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1276715442" From="-194072583" To="1438786557">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-981165913" From="832809242" To="-749407852">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1052684647" From="-1307115913" To="1370256677">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-276465881" From="1370256677" To="-1738341103">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-2076828524" From="1729906921" To="-176596332">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="194507214" From="333747972" To="-1881054117">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="2057950464" From="-1881054117" To="1710422330">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-694053605" From="-1738341103" To="-45181385">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="925650498" From="-1610594245" To="1536058067">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1486524106" From="2021135442" To="-353443697">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-25020688" From="-1312639966" To="409534241">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-568167748" From="409534241" To="-1307115913">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="71897657" From="1710422330" To="1537859665">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="466008688" From="2116544382" To="-1023906941">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1692887007" From="1447980230" To="576206122">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-700636363" From="576206122" To="153809858">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1506053841" From="576206122" To="90771114">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1353412155" From="567992290" To="-420977255">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1969490671" From="1777475805" To="1447980230">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="703605903" From="1370256677" To="1321163171">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-831027115" From="1438786557" To="1321163171">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="561318412" From="1321163171" To="-194072583">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="306934200" From="-1023906941" To="1680139965">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1761517943" From="-749407852" To="1680139965">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-2082964615" From="1680139965" To="832809242">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1861578861" From="1537859665" To="492045793">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="1013274752" From="-176596332" To="492045793">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="1166049917" From="492045793" To="2062999214">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="56949915" From="-45181385" To="2011253313">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="654394159" From="1370256677" To="2011253313">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-2120064578" From="1438786557" To="2011253313">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1777198468" From="409534241" To="2011253313">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1568604015" From="2011253313" To="1729906921">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="1612649399" From="-45181385" To="735739497">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-525166653" From="-176596332" To="735739497">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="138859420" From="735739497" To="333747972">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1847863347" From="-353443697" To="-2021460674">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-241367287" From="2062999214" To="-2021460674">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-2093822973" From="-2021460674" To="-1610594245">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="1622123414" From="-1881054117" To="1431090895">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1239235864" From="1537859665" To="1431090895">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="341341975" From="-749407852" To="1431090895">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="218314352" From="1431090895" To="2021135442">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1142565491" From="153809858" To="1687197541">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="934736754" From="-420977255" To="1687197541">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-581541612" From="409534241" To="1687197541">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="1874842322" From="1687197541" To="-1312639966">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="7467" From="-1023906941" To="1059657765">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-958224045" From="1537859665" To="1059657765">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="1856076073" From="1059657765" To="2116544382">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1041918791" From="90771114" To="-1431979722">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-335607163" From="-420977255" To="-1431979722">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+<Transition Id="-1507004467" From="-1431979722" To="567992290">
+	<ConnectorGraphicsInfos>
+	<ConnectorGraphicsInfo ToolId="ProM" BorderColor="0"/>
+
+</ConnectorGraphicsInfos>
+
+</Transition>
+
+</Transitions>
+
+</WorkflowProcess>
+
+</WorkflowProcesses>
+
+</Package>
