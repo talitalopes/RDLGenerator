@@ -135,4 +135,11 @@ public class ModelNode {
 		
 		return nonVisitedEdges;
 	}
+
+	public Set<DefaultEdge> getEdges(DirectedGraph<ModelNode, DefaultEdge> modelGraph) {
+		if (this == null || modelGraph == null) {
+			return new HashSet<DefaultEdge>();
+		}
+		return modelGraph.outgoingEdgesOf(this);
+	}
 }

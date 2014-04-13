@@ -1,0 +1,5 @@
+Running on command line:
+
+cd [Project root folder]
+java -cp bin:libs/jgrapht-jdk1.6.jar br.ufrj.cos.prisma.Parser.ProcessModelParser
+
