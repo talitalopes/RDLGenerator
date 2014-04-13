@@ -28,30 +28,38 @@ public class CNETParserManager {
 
 	private CNETParserManager() {
 		cnetGraph = new CNetGraph(Constants.CNETFile);
-		cnetGraph.printInfo();
+//		cnetGraph.printInfo();
 	}
 
 	public void visitGraph() {
 		ModelNode rootNode = cnetGraph.getStartNode();
-		visitNode(rootNode);
+		DefaultEdge nextEdge = visitNode(rootNode);
+		
+		while (nextEdge != null) {
+			ModelNode nextNode = cnetGraph.getGraph().getEdgeTarget(nextEdge);
+			nextEdge = visitNode(nextNode);
+		}
 	}
 
-	public void visitNode(ModelNode node) {
+	public DefaultEdge visitNode(ModelNode node) {
 		Set<DefaultEdge> edges = node.getEdges(cnetGraph.getGraph());
 
 		if (edges.size() == 1) {
 			print(node.getName());
-			return;
+			return (edges.size() > 0) ? edges.iterator().next() : null;
 		}
-
+		
+		if (edges.size() == 0) {
+			return null;
+		}
+		
 		DefaultEdge edge = askForUserDecision(edges);
 		if (edge == null) {
 			print("Couldn't get next node.");
-			return;
+			return null;
 		}
 		
-		String target = cnetGraph.getGraph().getEdgeTarget(edge).getName();
-		print(target);
+		return edge;
 	}
 
 	private DefaultEdge askForUserDecision(Set<DefaultEdge> edges) {
@@ -71,7 +79,7 @@ public class CNETParserManager {
 
 		options += "Please, select one of the options above";
 
-		System.out.println(options);
+		print(options);
 		Console console = System.console();
 		if (console == null) {
 			System.out.println("Unable to fetch console");
