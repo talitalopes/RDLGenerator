@@ -10,6 +10,7 @@ import java.util.Stack;
 import org.jgrapht.DirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
+import br.ufrj.cos.prisma.RDL.RDLWriter;
 import br.ufrj.cos.prisma.model.ModelNode;
 import br.ufrj.cos.prisma.model.XPDLGraph;
 import br.ufrj.cos.prisma.util.Constants;
