@@ -1,8 +1,13 @@
 package br.ufrj.cos.prisma.model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
+import org.jgrapht.graph.DefaultEdge;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -20,6 +25,52 @@ public class XPDLGraph extends BaseGraph {
 
 	public XPDLGraph(String model) {
 		super(model);
+		addConditionalTasks();
+	}
+
+	private void addConditionalTasks() {
+		Iterator<ModelNode> iter = this.getGraph().vertexSet().iterator();
+		List<DefaultEdge> edgesToDelete = new ArrayList<DefaultEdge>();
+
+		int id = 1;
+		while (iter.hasNext()) {
+			ModelNode node = iter.next();
+
+			Set<DefaultEdge> edges = node.getEdges(getGraph());
+			if (edges.size() <= 1) {
+				continue;
+			}
+
+			for (DefaultEdge edge : edges) {
+				edgesToDelete.add(edge);
+			}
+
+		}
+
+		for (DefaultEdge edge : edgesToDelete) {
+			ModelNode sourceNode = getGraph().getEdgeSource(edge);
+			ModelNode targetNode = getGraph().getEdgeTarget(edge);
+
+			// When the target node is a gateway with only one outgoing edge, we
+			// change the target node for the target node of this edge
+			if (targetNode.getName().toLowerCase().contains("gateway")
+					&& targetNode.getEdges(getGraph()).size() == 1) {
+
+				DefaultEdge targetEdge = targetNode.getEdges(getGraph())
+						.iterator().next();
+				targetNode = getGraph().getEdgeTarget(targetEdge);
+			}
+
+			String condition = String.format("IF %s?", targetNode.getName());
+			ModelNode ifNode = new ModelNode(String.valueOf(id), condition);
+
+			addNode(ifNode);
+			addEdge(sourceNode, ifNode);
+			addEdge(ifNode, targetNode);
+			
+			id += 1;
+		}
+
 	}
 
 	@Override
@@ -42,7 +93,7 @@ public class XPDLGraph extends BaseGraph {
 			nodesIds.put(id, mNode);
 		}
 	}
-	
+
 	@Override
 	protected void createEdges(Map<String, ModelNode> nodesIds) {
 		NodeList transitions = Util.getNodesWithType(doc,
