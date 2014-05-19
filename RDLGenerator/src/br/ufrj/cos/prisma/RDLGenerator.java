@@ -6,6 +6,7 @@ import br.ufrj.cos.prisma.Parser.XPDLManagerv2;
 public class RDLGenerator {
 
 	public static void main(String[] args) {
+//		XPDL2BPMNConverter.getInstance().convert();
 		generateFromXPDL();
 	}
 
@@ -14,6 +15,6 @@ public class RDLGenerator {
 	}
 	
 	protected static void generateFromXPDL() {
-		XPDLManagerv2.getInstance().visitGraph();
+		XPDLManagerv2.getInstance().traverseGraph();//.visitGraph();
 	}
 }

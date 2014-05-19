@@ -67,7 +67,7 @@ public class XPDLGraph extends BaseGraph {
 			addNode(ifNode);
 			addEdge(sourceNode, ifNode);
 			addEdge(ifNode, targetNode);
-			
+			getGraph().removeEdge(edge);
 			id += 1;
 		}
 

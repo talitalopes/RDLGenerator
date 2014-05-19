@@ -142,4 +142,38 @@ public class ModelNode {
 		}
 		return modelGraph.outgoingEdgesOf(this);
 	}
+	
+	public Set<DefaultEdge> getIncomingEdges(DirectedGraph<ModelNode, DefaultEdge> modelGraph) {
+		if (this == null || modelGraph == null) {
+			return new HashSet<DefaultEdge>();
+		}
+		return modelGraph.incomingEdgesOf(this);
+	}
+	
+	public boolean conditionalChild(DirectedGraph<ModelNode, DefaultEdge> modelGraph) {
+		if (this.getIncomingEdges(modelGraph).size() > 1) {
+			return false;
+		}
+		
+		if (!this.getName().toLowerCase().contains("if ")) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public ModelNode getNextNode(DirectedGraph<ModelNode, DefaultEdge> modelGraph) {
+		if (this.getEdges(modelGraph).size() != 1) {
+			return null;
+		}
+		
+		DefaultEdge edge = this.getEdges(modelGraph).iterator().next();
+		ModelNode targetNode = modelGraph.getEdgeTarget(edge);
+		if (targetNode.isGateway()) {
+			DefaultEdge edgeGateway = targetNode.getEdges(modelGraph).iterator().next();
+			targetNode = modelGraph.getEdgeTarget(edgeGateway);
+		}
+		return targetNode;
+		
+	}
 }

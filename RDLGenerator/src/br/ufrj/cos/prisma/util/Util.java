@@ -21,7 +21,7 @@ public class Util {
 
 	public static void log(String format, String message) {
 		if (Constants.VERBOSE) {
-			System.out.println(message);
+			System.out.println(String.format(format, message));
 		}
 	}
 	
